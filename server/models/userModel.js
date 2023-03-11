@@ -3,32 +3,45 @@ const bcrypt = require('bcrypt')
 const validator = require('validator')
 
 const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        unique: true
+    },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,
         required: true
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
-})
+}, { timestamps: true }
+)
 
-userSchema.statics.loginUser = async function(email, password) {
+userSchema.statics.registerUser = async function(name, email, password, isAdmin=false) {
     // validation
-    if (!email || !password) {
+    if (!name || !email || !password) {
         throw Error('all fields must be filled')
     }
     if (!validator.isEmail(email)) {
-        throw Error('email must be valid')
+        throw Error('please enter a valid email')
     }
     if (!validator.isStrongPassword(password)) {
-        throw Error('password must be valid')
+        throw Error('please enter a stronger password')
     }
 
-    // check if email exist
-    const exist = await this.findOne({ email })
-    if (exist) {
-        throw Error('email already exists')
+    // check if name || email exist
+    const nameExist = await this.findOne({ name })
+    const emailExist = await this.findOne({ email })
+    if (nameExist || emailExist) {
+        const attr = nameExist ? 'name' : 'email'
+        throw Error(`${attr} already exists`)
     }
 
     // hash password
@@ -36,7 +49,7 @@ userSchema.statics.loginUser = async function(email, password) {
     const hash = await bcrypt.hash(password, salt)
 
     // create user
-    const user = await this.create({ email, password: hash })
+    const user = await this.create({ name, email, password: hash, isAdmin })
 
     return user
 }
