@@ -5,20 +5,20 @@ const createToken = (_id) => {
     return jwt.sign({ _id }, process.env.JWT_SECRET, { expiresIn: '3d' })
 }
 
-const login = async (req, res, next)  => {
-    const { email, password } = req.body
+const register = async (req, res, next)  => {
+    const { name, email, password } = req.body
     // console.log('req.body', req.body)
 
     try {
         // validate + create user w/ hashed pswd
-        const user = await User.loginUser(email, password)
+        const user = await User.registerUser(name, email, password)
         // create JWT
         const token = createToken(user._id)
         // send resp
-        res.status(201).json({ email, token })
+        res.status(201).json({ name, token })
     } catch(error){
         next(error)
     }
 }
 
-module.exports = { login }
+module.exports = { register }
