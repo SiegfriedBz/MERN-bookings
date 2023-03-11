@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Hotel = require('../models/hotelModel')
+const customError = require('../utils/error')
 
 const getHotels = async (req, res, next) => {
     try {
@@ -10,26 +11,24 @@ const getHotels = async (req, res, next) => {
     } catch(error) {
         next(error)
     }
-
 }
 
 const getHotel = async (req, res, next) => {
     const { id } = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: 'No such hotel'})
+        return next(customError(404, 'No such hotel'))
     }
 
     try {
         const hotel = await Hotel.findOne({ _id: id })
         if (!hotel) {
-            return res.status(404).json({error: 'No such hotel'})
+            return next(customError(404, 'No such hotel'))
         }
         res.status(200).json(hotel)
     } catch(error) {
         next(error)
     }
-
 }
 
 const createHotel = async (req, res, next) => {
@@ -45,7 +44,7 @@ const updateHotel = async (req, res, next) => {
     const { id } = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: 'No such hotel'})
+        return next(customError(404, 'No such hotel'))
     }
 
     try {
@@ -55,7 +54,7 @@ const updateHotel = async (req, res, next) => {
             { new: true }
         )
         if(!updatedHotel) {
-            return res.status(404).json({error: 'No such hotel'})
+            return next(customError(404, 'No such hotel'))
         }
 
         res.status(200).json(updatedHotel)
@@ -68,7 +67,7 @@ const deleteHotel = async (req, res, next) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: 'No such hotel'})
+        return next(customError(404, 'No such hotel'))
     }
 
     try {
@@ -77,13 +76,12 @@ const deleteHotel = async (req, res, next) => {
             { returnDocument: 'after' }
         )
         if(!hotel) {
-            return res.status(404).json({error: 'No such hotel'})
+            return next(customError(404, 'No such hotel'))
         }
         res.status(200).json(hotel)
     } catch(error) {
         next(error)
     }
-
 }
 
 module.exports = { getHotels, getHotel, createHotel, updateHotel, deleteHotel }

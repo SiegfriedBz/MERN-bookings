@@ -7,7 +7,7 @@ const createToken = (_id) => {
 
 const login = async (req, res, next)  => {
     const { email, password } = req.body
-    console.log('req.body', req.body)
+    // console.log('req.body', req.body)
 
     try {
         // validate + create user w/ hashed pswd
