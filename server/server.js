@@ -25,6 +25,16 @@ app.use('/api/users', userRouter)
 app.use('/api/hotels', hotelRouter)
 app.use('/api/rooms', roomRouter)
 
+app.use((err, req, res, next) => {
+    const errStatus = err.status || 500
+    const errMsg = err.message || 'Something went wrong'
+    return res.status(errStatus).json({
+        success: false,
+        message: errMsg,
+        stack: err.stack
+    })
+})
+
 // connect to db
 const connect = async () => {
     console.log('connecting to db...')

@@ -1,18 +1,18 @@
 const mongoose = require('mongoose')
 const User = require('../models/userModel')
 
-const getUsers = async (req, res) => {
+const getUsers = async (req, res, next) => {
     try {
         const users = await User
             .find({})
             .sort({ createdAt: -1 })
         res.status(200).json(users)
     } catch(error) {
-        res.status(400).json({ error: error.message })
+        next(error)
     }
 }
 
-const getUser = async (req, res) => {
+const getUser = async (req, res, next) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -26,23 +26,23 @@ const getUser = async (req, res) => {
         }
         res.status(200).json(user)
     } catch(error) {
-        res.status(400).json({ error: error.message })
+        next(error)
     }
 }
 
-const createUser = async (req, res) => {
+const createUser = async (req, res, next) => {
     try {
         const user = await User.create(req.body)
         res.status(201).json(user)
     } catch(error) {
-        res.status(400).json({ error: error.message })
+        next(error)
     }
 }
 
-const updateUser = async (req, res) => {
+const updateUser = async (req, res, next) => {
     const { id } = req.params
 
-    if (!mongoose.Types.ObjectId,isValid(id)) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json('No such user')
     }
 
@@ -57,11 +57,11 @@ const updateUser = async (req, res) => {
         }
         res.status(200).json(updatedUser)
     } catch(error) {
-        res.status(400).json({ error: error.message })
+        next(error)
     }
 }
 
-const deleteUser = async (req, res) => {
+const deleteUser = async (req, res, next) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -70,7 +70,7 @@ const deleteUser = async (req, res) => {
 
     try {
         const user = await User.findOneAndDelete(
-            { _id: id},
+            { _id: id },
             { returnDocument: "after" }
         )
         if (!user) {
@@ -78,7 +78,7 @@ const deleteUser = async (req, res) => {
         }
         res.status(200).json(user)
     } catch(error) {
-        res.status(400).json({ error: error.message })
+        next(error)
     }
 }
 

@@ -5,7 +5,7 @@ const createToken = (_id) => {
     return jwt.sign({ _id }, process.env.JWT_SECRET, { expiresIn: '3d' })
 }
 
-const login = async (req, res)  => {
+const login = async (req, res, next)  => {
     const { email, password } = req.body
     console.log('req.body', req.body)
 
@@ -17,7 +17,7 @@ const login = async (req, res)  => {
         // send resp
         res.status(201).json({ email, token })
     } catch(error){
-        res.status(400).json({error: error.message})
+        next(error)
     }
 }
 

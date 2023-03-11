@@ -1,19 +1,19 @@
 const mongoose = require('mongoose')
 const Hotel = require('../models/hotelModel')
 
-const getHotels = async (req, res) => {
+const getHotels = async (req, res, next) => {
     try {
         const hotels = await Hotel
             .find({})
             .sort({ createdAt: -1 })
         res.status(200).json(hotels)
     } catch(error) {
-        res.status(400).json({error: error.message})
+        next(error)
     }
 
 }
 
-const getHotel = async (req, res) => {
+const getHotel = async (req, res, next) => {
     const { id } = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)) {
@@ -27,21 +27,21 @@ const getHotel = async (req, res) => {
         }
         res.status(200).json(hotel)
     } catch(error) {
-        res.status(400).json({error: error.message})
+        next(error)
     }
 
 }
 
-const createHotel = async (req, res) => {
+const createHotel = async (req, res, next) => {
     try {
         const hotel = await Hotel.create(req.body)
         res.status(201).json(hotel)
     } catch(error) {
-        res.status(400).json({error: error.message})
+        next(error)
     }
 }
 
-const updateHotel = async (req, res) => {
+const updateHotel = async (req, res, next) => {
     const { id } = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)) {
@@ -60,11 +60,11 @@ const updateHotel = async (req, res) => {
 
         res.status(200).json(updatedHotel)
     } catch(error) {
-        res.status(400).json({error: error.message})
+        next(error)
     }
 }
 
-const deleteHotel = async (req, res) => {
+const deleteHotel = async (req, res, next) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -81,7 +81,7 @@ const deleteHotel = async (req, res) => {
         }
         res.status(200).json(hotel)
     } catch(error) {
-        res.status(400).json({error: error.message})
+        next(error)
     }
 
 }
