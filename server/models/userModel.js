@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
+const customError = require('../utils/error')
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -24,24 +25,24 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true }
 )
 
-userSchema.statics.registerUser = async function(name, email, password, isAdmin=false) {
-    // validation
+userSchema.statics.registerUser = async function(name, email, password, isAdmin) {
+    // input validation
     if (!name || !email || !password) {
-        throw Error('all fields must be filled')
+        throw customError(400, 'all fields must be filled')
     }
     if (!validator.isEmail(email)) {
-        throw Error('please enter a valid email')
+        throw customError(400, 'please enter a valid email')
     }
     if (!validator.isStrongPassword(password)) {
-        throw Error('please enter a stronger password')
+        throw customError(400, 'please enter a stronger password')
     }
 
-    // check if name || email exist
+    // check if name || email exists
     const nameExist = await this.findOne({ name })
     const emailExist = await this.findOne({ email })
     if (nameExist || emailExist) {
         const attr = nameExist ? 'name' : 'email'
-        throw Error(`${attr} already exists`)
+        throw customError(400, `${attr} already exists`)
     }
 
     // hash password
@@ -50,6 +51,21 @@ userSchema.statics.registerUser = async function(name, email, password, isAdmin=
 
     // create user
     const user = await this.create({ name, email, password: hash, isAdmin })
+
+    return user
+}
+
+userSchema.statics.loginUser = async function(name, password) {
+    // check if user name exists
+    const user = await this.findOne( { name })
+    if (!user) {
+        throw customError(404, 'no such user')
+    }
+    // check pswd
+    const isValid = await bcrypt.compare(password, user.password)
+    if (!isValid) {
+        throw customError(400, 'wrong password or username')
+    }
 
     return user
 }
