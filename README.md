@@ -9,7 +9,7 @@
     + Express
     + bcrypt
     + validator
-    + jsonwebtoken
+    + JWT
     + cookie-parser
     + Mongoose schema, model, statics methods
 
