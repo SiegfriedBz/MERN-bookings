@@ -4,8 +4,6 @@
 
 - Client
     + React
-    + Context API
-    + Custom Hooks
 
 - Server
     + Express
@@ -22,15 +20,15 @@
 
 Authentication
 - authRoutes => cookie(JWT, { httpOnly })
-    + register -> props: name, email, password
-    + login -> props: name, password
+    + register -> body: name, email, password
+    + login -> body: name, password
 
 Authorization - middleware
 - userRoutes
     + getUsers // Admin restricted
     + getUser // 'self' restricted    -> params: id
-    + createUser // Admin restricted  -> props: name, email, password, isAdmin
-    + updateUser // 'self' restricted -> params: id ; props: name, email, password
+    + createUser // Admin restricted  -> body: name, email, password, isAdmin
+    + updateUser // 'self' restricted -> params: id ; body: name, email, password
     + deleteUser // 'self' restricted -> params: id
 - hotelRoutes
     + getHotels
