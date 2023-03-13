@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 const authRouter = require('./routes/authRouter')
 const userRouter = require('./routes/userRouter')
 const hotelRouter = require('./routes/hotelRouter')
@@ -13,6 +14,7 @@ const app = express()
 // middleware
 app.use(express.json()) // required for req.body
 app.use(cors())
+app.use(cookieParser())
 app.use((req, res, next) => {
     console.log('---')
     console.log(req.path, req.method)

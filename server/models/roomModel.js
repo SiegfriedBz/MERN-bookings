@@ -1,23 +1,27 @@
 const mongoose = require('mongoose')
 
 const roomSchema = new mongoose.Schema({
-    hotel_id: {
+    title: {
+        type: String,
+        required: true
+    },
+    price: {
         type: Number,
         required: true
     },
-    user_id: {
-        type: Number,
-        required: false
-    },
-    number: {
+    maxPeople: {
         type: Number,
         required: true
     },
-    booked: {
-        type: Boolean,
-        default: false,
+    description: {
+        type: String,
         required: true
-    }
+    },
+    roomNumbers: [
+        {   number: Number,
+            bookedDates: [{ type: [Date] }]
+        }
+    ]
 })
 
 module.exports = mongoose.model('Room', roomSchema)

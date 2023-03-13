@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true }
 )
 
-userSchema.statics.registerUser = async function(name, email, password, isAdmin) {
+userSchema.statics.registerUser = async function(name, email, password) {
     // input validation
     if (!name || !email || !password) {
         throw customError(400, 'all fields must be filled')
@@ -50,7 +50,7 @@ userSchema.statics.registerUser = async function(name, email, password, isAdmin)
     const hash = await bcrypt.hash(password, salt)
 
     // create user
-    const user = await this.create({ name, email, password: hash, isAdmin })
+    const user = await this.create({ name, email, password: hash })
 
     return user
 }

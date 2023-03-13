@@ -7,11 +7,15 @@ const {
     updateHotel,
     deleteHotel
 } = require('../controllers/hotelController')
+const {
+    requireAdminAuthorization
+} = require('../utils/middleware/checkAccessTokenCookie')
+// Admin restricted
 
 router.get('/', getHotels)
 router.get('/:id', getHotel)
-router.post('/', createHotel)
-router.patch('/:id', updateHotel)
-router.delete('/:id', deleteHotel)
+router.post('/', requireAdminAuthorization, createHotel) // Admin restricted
+router.patch('/:id', requireAdminAuthorization, updateHotel) // Admin restricted
+router.delete('/:id', requireAdminAuthorization, deleteHotel) // Admin restricted
 
 module.exports = router

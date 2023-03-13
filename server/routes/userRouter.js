@@ -7,11 +7,15 @@ const {
     updateUser,
     deleteUser
 } = require('../controllers/userController')
+const {
+    requireUserAuthorization,
+    requireAdminAuthorization
+} = require('../utils/middleware/checkAccessTokenCookie')
 
-router.get('/', getUsers)
-router.get('/:id', getUser)
-router.post('/', createUser)
-router.patch('/:id', updateUser)
-router.delete('/:id', deleteUser)
+router.get('/', requireAdminAuthorization, getUsers) // Admin restricted
+router.get('/:id', requireUserAuthorization, getUser) // 'self' restricted
+router.post('/', requireAdminAuthorization, createUser) // Admin restricted
+router.patch('/:id', requireUserAuthorization, updateUser) // 'self' restricted
+router.delete('/:id', requireUserAuthorization, deleteUser) // 'self' restricted
 
 module.exports = router

@@ -17,13 +17,13 @@ const getHotel = async (req, res, next) => {
     const { id } = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)) {
-        return next(customError(404, 'No such hotel'))
+        throw customError(404, 'No such hotel')
     }
 
     try {
         const hotel = await Hotel.findOne({ _id: id })
         if (!hotel) {
-            return next(customError(404, 'No such hotel'))
+            throw customError(404, 'No such hotel')
         }
         res.status(200).json(hotel)
     } catch(error) {
@@ -31,6 +31,7 @@ const getHotel = async (req, res, next) => {
     }
 }
 
+// Admin restricted
 const createHotel = async (req, res, next) => {
     try {
         const hotel = await Hotel.create(req.body)
@@ -40,11 +41,12 @@ const createHotel = async (req, res, next) => {
     }
 }
 
+// Admin restricted
 const updateHotel = async (req, res, next) => {
     const { id } = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)) {
-        return next(customError(404, 'No such hotel'))
+        throw customError(404, 'No such hotel')
     }
 
     try {
@@ -54,7 +56,7 @@ const updateHotel = async (req, res, next) => {
             { new: true }
         )
         if(!updatedHotel) {
-            return next(customError(404, 'No such hotel'))
+            throw customError(404, 'No such hotel')
         }
 
         res.status(200).json(updatedHotel)
@@ -63,11 +65,12 @@ const updateHotel = async (req, res, next) => {
     }
 }
 
+// Admin restricted
 const deleteHotel = async (req, res, next) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return next(customError(404, 'No such hotel'))
+        throw customError(404, 'No such hotel')
     }
 
     try {
@@ -76,7 +79,7 @@ const deleteHotel = async (req, res, next) => {
             { returnDocument: 'after' }
         )
         if(!hotel) {
-            return next(customError(404, 'No such hotel'))
+            throw customError(404, 'No such hotel')
         }
         res.status(200).json(hotel)
     } catch(error) {
