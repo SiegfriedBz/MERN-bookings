@@ -3,19 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faStar
 } from '@fortawesome/free-solid-svg-icons'
-import clsx from 'clsx'
 
 const testimonials = [
-    {id: 1, },
-
+    {id: 1, rating: 5},
+    {id: 2, rating: 1},
 ]
 
 const Testimonials = () => {
-
-    const iconClass = (stars) => return clsx( {
-        'icon-star-blank': stars === 0,
-        'icon-star-gold': stars > 0
-    })
 
     return(
         <div className="testimonials-container">
@@ -25,7 +19,19 @@ const Testimonials = () => {
                         <img className='testimonials-image' src="" alt="testimonials"/>
                         <h5 className="testimonials-text"></h5>
                         <p className="testimonials-text">
-                            <FontAwesomeIcon icon={faStar} />
+                            {
+                                Array(testimonial.rating)
+                                    .fill(faStar)
+                                    .map((star, index) => {
+                                        return(
+                                            <FontAwesomeIcon
+                                                className='icon-star-gold'
+                                                key={index}
+                                                icon={star}
+                                            />
+                                        )
+                                    })
+                            }
                         </p>
                     </div>
                 )
