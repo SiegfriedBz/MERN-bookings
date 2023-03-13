@@ -1,0 +1,12 @@
+.home-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 48px auto;
+    padding: 4px 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-title {
+
+}
