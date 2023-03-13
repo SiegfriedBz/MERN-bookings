@@ -1,3 +1,3 @@
 # MERN-bookings
 
-![image](https://user-images.githubusercontent.com/99029880/224813752-a998ee1f-bd89-4137-a39f-58d126602b13.png)
+[screen-recording (1).webm](https://user-images.githubusercontent.com/99029880/224847207-a2d36632-548c-4134-9c1c-da48cba0a2e7.webm)
