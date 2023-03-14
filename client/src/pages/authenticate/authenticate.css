@@ -1,0 +1,33 @@
+.auth-card-container {
+    width: 376px;
+    margin: 48px auto;
+    padding: 16px;
+    box-shadow: 0px 2px 8px rgba(0, 113, 194, 1);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    outline: none;
+    border: 1px solid rgba(0, 113, 194, 1);
+    border-radius: 4px;
+    margin: 8px;
+    padding: 8px;
+}
+
+.auth-btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    background-color: rgba(0, 113, 194, 1);
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.auth-btn:hover {
+    border-color: white;
+}
