@@ -13,9 +13,9 @@ const PropertyTypes = () => {
         <div className="pl-container">
             {propertyTypesList &&
                 propertyTypesList.map(propertyType => {
-                    const { img, type, typeNb } = propertyType
+                    const { id, img, type, typeNb } = propertyType
                     return (
-                        <div className="pl-item">
+                        <div key={id} className="pl-item">
                             <img className="pl-image" src={img} alt="property type"/>
                             <h4 className="pl-text">{type}</h4>
                             <p className="pl-text">{typeNb} {type.toLowerCase()}</p>

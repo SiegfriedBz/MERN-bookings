@@ -11,9 +11,9 @@ const FeaturedCities = () => {
     return(
         <div className='fc-container'>
             {featuredCitiesList && featuredCitiesList.map((city) => {
-                const { img, name, nbrOfProperties } = city
+                const { id, img, name, nbrOfProperties } = city
                 return (
-                    <div className='fc-item'>
+                    <div key={id} className='fc-item'>
                         <img className='fc-image' src={img} alt="city"/>
                         <h4 className="fc-text">{name}</h4>
                         <p className="fc-text">{nbrOfProperties} properties</p>
