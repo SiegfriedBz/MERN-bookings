@@ -1,7 +1,7 @@
 import './home.css'
 import FeaturedCities from '../../components/featuredCities/FeaturedCities'
 import PropertyTypes from '../../components/propertyTypes/PropertyTypes'
-import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
+import FeaturedProperties from '../../components/featuredProperties/FeaturedProperties'
 
 const Home = () => {
     return(
