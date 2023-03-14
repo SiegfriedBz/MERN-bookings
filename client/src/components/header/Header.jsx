@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -106,7 +106,7 @@ const Header = () => {
                     <>
                         <h1 className="header-title">Find your next stay</h1>
                         <p className="header-description">Get rewarded for your travels - unlock instant savings of 10% or more with a free MangooBooking account</p>
-                        <button className="header-btn">Signin / Register</button>
+                        <Link to='/login' className="header-link">Signin / Register</Link>
                     </>
                 }
             </div>

@@ -49,8 +49,9 @@
     margin: 8px 0 16px 0;
 }
 
-.header-btn {
-    padding: 4px 8px;
+.header-link {
+    text-decoration: none;
+    padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
     color: white;
@@ -59,7 +60,7 @@
     transition: border-color 0.2s ease-in-out;
 }
 
-.header-btn:hover {
+.header-link:hover {
     border-color: white;
 }
 
