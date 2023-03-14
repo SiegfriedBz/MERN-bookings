@@ -2,7 +2,12 @@
     width: 376px;
     margin: 48px auto;
     padding: 16px;
-    box-shadow: 0px 2px 8px rgba(0, 113, 194, 1);
+    box-shadow: 1px 1px 8px lightgray;
+}
+
+.auth-title {
+    text-align: center;
+    color: rgba(0, 113, 194, 1);
 }
 
 .auth-form {
@@ -16,6 +21,7 @@ input {
     border-radius: 4px;
     margin: 8px;
     padding: 8px;
+    cursor: pointer;
 }
 
 .auth-btn {

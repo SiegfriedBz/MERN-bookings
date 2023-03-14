@@ -27,7 +27,7 @@ const Authenticate = () => {
 
     const registerContent = (
         <div className="auth-card-container">
-            <h3>Register</h3>
+            <h3 className='auth-title'>Register</h3>
             <form onSubmit={handleSubmit}
                 className="auth-form">
                 <input
@@ -35,18 +35,21 @@ const Authenticate = () => {
                     name='name'
                     value={user.name}
                     onChange={handleChange}
+                    placeholder='Your name...'
                     className="auth-name"/>
                 <input
                     type="email"
                     name='email'
                     value={user.email}
                     onChange={handleChange}
+                    placeholder='Your email...'
                     className="auth-email"/>
                 <input
                     type="password"
                     name='password'
                     value={user.password}
                     onChange={handleChange}
+                    placeholder='Your password...'
                     className="auth-password"/>
                 <button className='auth-btn'>Submit</button>
             </form>
@@ -55,7 +58,7 @@ const Authenticate = () => {
 
     const loginContent = (
         <div className="auth-card-container">
-            <h3>Login</h3>
+            <h3 className='auth-title'>Login</h3>
             <form onSubmit={handleSubmit}
                   className="auth-form">
                 <input
@@ -63,12 +66,14 @@ const Authenticate = () => {
                     name='name'
                     value={user.name}
                     onChange={handleChange}
+                    placeholder='Your name...'
                     className="auth-name"/>
                 <input
                     type="password"
                     name='password'
                     value={user.password}
                     onChange={handleChange}
+                    placeholder='Your password...'
                     className="auth-password"/>
                 <button className='auth-btn'>Submit</button>
             </form>
