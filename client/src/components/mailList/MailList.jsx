@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import './mailList.css'
 
-const MailList = () => {
+const MailList = ({ onUserMailListSubscribe }) => {
 
     const [email, setEmail] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        await onUserMailListSubscribe(email)
+        setEmail('')
     }
 
     return(

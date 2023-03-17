@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import {Link, useLocation} from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -17,6 +17,8 @@ import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import './header.css'
 
+const initDestination = 'Paros Greece'
+
 const initDateRange = {
     startDate: new Date(),
     endDate: new Date(Date.now() + (3600 * 1000 * 24)),
@@ -30,14 +32,16 @@ const initRoomOptions = {
 }
 
 const Header = () => {
+    const [destination, setDestination] = useState(initDestination)
     const [dateRange, setDateRange] = useState(initDateRange)
     const [dateRangeIsOpen, setDateRangeIsOpen] = useState(false)
     const [roomOptions, setRoomOptions] = useState(initRoomOptions)
     const [roomOptionsIsOpen, setRoomOptionsIsOpen] = useState(false)
     const [showFullHeader, setShowFullHeader] = useState(true)
 
-    const {pathname} = useLocation()
+    const { pathname } = useLocation()
     const headerSearch = useRef(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         setShowFullHeader(pathname === '/')
@@ -56,6 +60,10 @@ const Header = () => {
         }
     }, [headerSearch])
 
+    const handleChangeDestination = (e) => {
+        setDestination(e.target.value)
+    }
+
     const handleChangeDateRange = (e) => {
         setDateRange({...dateRange, ...e.selection})
     }
@@ -67,6 +75,16 @@ const Header = () => {
                 [field]: change === '+' ? prev[field] +1 : prev[field] -1
             }
         })
+    }
+
+    const handleSearch = (e) => {
+        navigate('/hotels', {
+            state: {
+                headerDestination: destination,
+                headerDateRange: dateRange,
+                headerRoomOptions: roomOptions
+            }}
+        )
     }
 
     const headerContainerClass = clsx('header-container', {
@@ -121,6 +139,8 @@ const Header = () => {
                             className="header-search-input"
                             type="text"
                             placeholder='Where are you going?'
+                            defaultValue={destination}
+                            onChange={handleChangeDestination}
                         />
                     </div>
                     <div className="header-search-item">
@@ -223,7 +243,9 @@ const Header = () => {
                             </div>
                         }
                     </div>
-                    <button className="header-search-btn">Search</button>
+                    <button
+                        onClick={handleSearch}
+                        className="header-search-btn">Search</button>
                 </div>
             }
         </div>

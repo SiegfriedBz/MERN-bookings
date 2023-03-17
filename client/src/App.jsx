@@ -1,14 +1,35 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/home/Home'
-import Authenticate from './pages/authenticate/Authenticate'
-import HotelsList from './pages/hotelsList/HotelsList'
-import Hotel from './pages/hotel/Hotel'
 import Navbar from "./components/navbar/Navbar"
 import Header from "./components/header/Header"
-import MailList from './components/mailList/MailList'
 import Footer from './components/footer/Footer'
+import MailList from './components/mailList/MailList'
+import Home from './pages/homePage/HomePage'
+import AuthPage from './pages/authPage/AuthPage'
+import HotelsPage from './pages/hotelsPage/HotelsPage'
+import HotelPage from './pages/hotelPage/HotelPage'
+
+const SERVER_URL = {
+    'mailingList': '/mailinglist'
+}
 
 function App() {
+
+    const onUserAuth = async () => {
+        console.log('onUserRegisterOrLogin')
+    }
+
+    const onUserMailListSubscribe = async (userEmail) => {
+        console.log('onUserMailListSubscribe')
+        // const response = await fetch(SERVER_URL['mailingList'], {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(userEmail)
+        // })
+        // const data = await response.json()
+        // console.log('onMailingListSubscribe data', data)
+    }
 
   return (
       <Router>
@@ -16,12 +37,18 @@ function App() {
           <Header />
           <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/register' element={<Authenticate />} />
-              <Route path='/login' element={<Authenticate />} />
-              <Route path='/hotels' element={<HotelsList />} />
-              <Route path='/hotels/:id' element={<Hotel />} />
+              <Route path='/register' element={
+                  <AuthPage
+                      onUserAuth={onUserAuth}
+                  />} />
+              <Route path='/login' element={
+                  <AuthPage
+                      onUserAuth={onUserAuth}
+                  />} />
+              <Route path='/hotels' element={<HotelsPage />} />
+              <Route path='/hotels/:id' element={<HotelPage />} />
           </Routes>
-          <MailList />
+          <MailList onUserMailListSubscribe={onUserMailListSubscribe}/>
           <Footer />
       </Router>
   )

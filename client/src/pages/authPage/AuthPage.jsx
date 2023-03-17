@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import './authenticate.css'
+import './authPage.css'
 
 const initUser = {
     name: '',
@@ -8,7 +8,7 @@ const initUser = {
     password: ''
 }
 
-const Authenticate = () => {
+const AuthPage = ({ onUserAuth }) => {
     const location = useLocation()
     const [user, setUser] = useState(initUser)
 
@@ -21,8 +21,11 @@ const Authenticate = () => {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        await onUserAuth(user)
+        setUser(initUser)
+        // redirect to '/'
     }
 
     const registerContent = (
@@ -84,4 +87,4 @@ const Authenticate = () => {
 
 }
 
-export default Authenticate
+export default AuthPage

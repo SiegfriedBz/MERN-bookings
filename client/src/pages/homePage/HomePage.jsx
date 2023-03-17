@@ -1,9 +1,9 @@
-import './home.css'
+import './homePage.css'
 import FeaturedCities from '../../components/featuredCities/FeaturedCities'
 import PropertyTypes from '../../components/propertyTypes/PropertyTypes'
 import FeaturedProperties from '../../components/featuredProperties/FeaturedProperties'
 
-const Home = () => {
+const HomePage = () => {
     return(
         <div className="home-container">
             <FeaturedCities />
@@ -15,4 +15,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default HomePage

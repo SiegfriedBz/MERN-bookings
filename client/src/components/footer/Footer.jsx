@@ -29,7 +29,7 @@ const Footer = () => {
                     getItemsList()
                 }
             </div>
-            <p className='footer-copy'>&#169; 2023 MangoBooking</p>
+            <p className='footer-copy'>&#169; 2023 MangooBooking</p>
         </div>
     )
 }
