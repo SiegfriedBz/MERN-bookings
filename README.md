@@ -1,6 +1,6 @@
 # MERN-bookings
 
-[screen-recording (2).webm](https://user-images.githubusercontent.com/99029880/225148813-a6d84fa0-5d37-4996-b513-68b132f5a4ab.webm)
+[screen-recording (3).webm](https://user-images.githubusercontent.com/99029880/226114106-fa5638cd-3cd6-4548-99ef-9130ddfb2813.webm)
 
 - Client
     + React
