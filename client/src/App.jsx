@@ -82,10 +82,13 @@ function App() {
           <Header
               destination={destination}
               dateRange={dateRange}
-              dateRangeIsOpen={dateRangeIsOpen} setDateRangeIsOpen={setDateRangeIsOpen}
+              dateRangeIsOpen={dateRangeIsOpen}
+              setDateRangeIsOpen={setDateRangeIsOpen}
               roomOptions={roomOptions}
-              roomOptionsIsOpen={roomOptionsIsOpen} setRoomOptionsIsOpen={setRoomOptionsIsOpen}
-              showFullHeader={showFullHeader} setShowFullHeader={setShowFullHeader}
+              roomOptionsIsOpen={roomOptionsIsOpen}
+              setRoomOptionsIsOpen={setRoomOptionsIsOpen}
+              showFullHeader={showFullHeader}
+              setShowFullHeader={setShowFullHeader}
               handleChangeDestination={handleChangeDestination}
               handleChangeDateRange={handleChangeDateRange}
               handleChangeRoomOptions={handleChangeRoomOptions}
@@ -104,15 +107,17 @@ function App() {
                   <HotelsPage
                       destination={destination}
                       dateRange={dateRange}
-                      dateRangeIsOpen={dateRangeIsOpen} setDateRangeIsOpen={setDateRangeIsOpen}
+                      dateRangeIsOpen={dateRangeIsOpen}
+                      setDateRangeIsOpen={setDateRangeIsOpen}
                       roomOptions={roomOptions}
                       handleChangeDestination={handleChangeDestination}
                       handleChangeDateRange={handleChangeDateRange}
                       handleChangeRoomOptions={handleChangeRoomOptions}
-                  />} />
+                  />
+              } />
               <Route path='/hotels/:id' element={<HotelPage />} />
           </Routes>
-          <MailList onUserMailListSubscribe={onUserMailListSubscribe}/>
+          <MailList onUserMailListSubscribe={onUserMailListSubscribe} />
           <Footer />
       </Router>
   )
