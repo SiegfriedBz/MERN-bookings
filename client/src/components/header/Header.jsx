@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,9 +13,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { format } from 'date-fns'
 import { DateRange } from 'react-date-range'
+import './header.css'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
-import './header.css'
 
 const Header = (props) => {
 

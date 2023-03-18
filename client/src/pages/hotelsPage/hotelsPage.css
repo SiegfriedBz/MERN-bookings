@@ -16,6 +16,7 @@
 .hotels-search-container {
     position: sticky;
     top: 24px;
+    height: 462px;
     padding: 16px 0;
     border-radius: 8px;
     background-color: #febb02;
@@ -51,21 +52,33 @@ span.input-title {
     margin: 16px 0 8px 16px;
 }
 
+span.input-subtitle {
+    font-size: 14px;
+}
+
 .input-container {
     width: 75%;
     position: relative;
 }
 
+.date-range {
+    position: absolute;
+    left: -36px;
+    top: 40px;
+    border-radius: 8px;
+    z-index: 999;
+}
+
 input.destination {
     width: 100%;
     margin: 4px 0;
-    font-size: 16px;
+    font-size: 14px;
     border: none;
 }
 
 .input-container.dates {
     width: 75%;
-    font-size: 16px;
+    font-size: 14px;
     border: none;
     border-radius: 4px;
     margin: 4px 16px;
@@ -78,15 +91,11 @@ input.destination {
 }
 
 input.prices {
-    margin-right: 0;
-}
-
-.date-range {
-    position: absolute;
-    left: -36px;
-    top: 40px;
-    border-radius: 8px;
-    z-index: 999;
+    width: 72px;
+    margin: 2px 0;
+    padding: 2px 8px;
+    font-size: 14px;
+    border: none;
 }
 
 .input-sub-container {
@@ -110,24 +119,29 @@ input.prices {
 }
 
 .option-search-btn-wrapper {
-    width: 72px;
+    min-width: 72px;
+    margin: 2px 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
 }
 
 .option-search-btn {
+    margin: 0;
+    padding: 0 8px;
+    border: 1px solid transparent;
     color: rgba(0, 113, 194, 1);
-    background-color: #febb02;
-    font-weight: bold;
+    background-color: white;
     border: none;
     border-radius: 4px;
-    padding: 8px;
     cursor: pointer;
     transition: color, background-color 0.2s ease-in-out;
 }
 
 .option-search-btn:not([disabled]):hover {
+    border-color: rgba(0, 113, 194, 1);
     color: #febb02;
     background-color: rgba(0, 113, 194, 1);
 }
@@ -147,16 +161,14 @@ input.prices {
     width: 75%;
     padding: 8px 16px;
     margin-top: 8px;
-    font-weight: bold;
     border-radius: 8px;
-    border: none;
     cursor: pointer;
-    color: white;
     background-color: rgba(0, 113, 194, 1);
-    transition: background-color 0.2s ease-in-out;
+    color: white;
+    border: 1px solid transparent;
+    transition: color, border-color 0.2s ease-in-out;
 }
 
 .hotels-search-btn:hover {
-    font-weight: bolder;
-    background-color: rgba(0, 53, 128, 1);
+    border-color: white;
 }

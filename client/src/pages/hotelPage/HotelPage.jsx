@@ -1,5 +1,4 @@
 import './hotelPage.css'
-import { useState } from 'react'
 
 const initHotel = {
     name: '',

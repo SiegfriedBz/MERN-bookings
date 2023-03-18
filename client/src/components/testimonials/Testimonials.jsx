@@ -1,8 +1,8 @@
-import './testimonials.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faStar
 } from '@fortawesome/free-solid-svg-icons'
+import './testimonials.css'
 
 const testimonials = [
     {id: 1, rating: 5},

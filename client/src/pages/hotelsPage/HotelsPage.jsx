@@ -1,18 +1,20 @@
-import './hotelsPage.css'
-import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
-import Hotel from '../../components/hotel/Hotel'
+import { useState } from 'react'
+import HotelCard from '../../components/hotelCard/HotelCard'
 import { format } from 'date-fns'
 import { DateRange } from 'react-date-range'
 import clsx from 'clsx'
-import 'react-date-range/dist/styles.css'
-import 'react-date-range/dist/theme/default.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
+import './hotelsPage.css'
+import 'react-date-range/dist/styles.css'
+import 'react-date-range/dist/theme/default.css'
 
 const initSearchResults = [
     { id: 1, name: 'A' },
-    { id: 2, name: 'B' }
+    { id: 2, name: 'B' },
+    { id: 3, name: 'C' },
+    { id: 4, name: 'D' },
+    { id: 5, name: 'E' }
 ]
 
 const HotelsPage = (props) => {
@@ -108,7 +110,7 @@ const HotelsPage = (props) => {
                             <div className="input-container prices">
                                 <div className='input-sub-container'>
                                     <span className="input-subtitle">
-                                        MinPrice
+                                        MinPrice <small>per night</small>
                                     </span>
                                     <input
                                         className='prices'
@@ -120,7 +122,7 @@ const HotelsPage = (props) => {
                                 </div>
                                 <div className='input-sub-container'>
                                     <span className="input-subtitle">
-                                        MaxPrice
+                                        MaxPrice <small>per night</small>
                                     </span>
                                     <input
                                         className='prices'
@@ -215,11 +217,11 @@ const HotelsPage = (props) => {
                 </div>
 
                 <div className="hotels-results-container">
-                    <h3>Your Hotels</h3>
+                    {/*<h3>Your Hotels</h3>*/}
                     {searchResults &&
                         searchResults.map(hotel => {
                             return (
-                                <Hotel key={hotel.id} hotel={hotel} />
+                                <HotelCard key={hotel.id} hotel={hotel} />
                             )
                         })
                     }
