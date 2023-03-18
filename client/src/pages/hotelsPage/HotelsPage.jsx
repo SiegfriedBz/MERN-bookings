@@ -208,7 +208,7 @@ const HotelsPage = (props) => {
                 </form>
             </div>
 
-            <div className="hotels--results-container">
+            <div>
                 {searchResults &&
                     searchResults.map(hotel => {
                         return (
