@@ -1,19 +1,14 @@
-.hotels-wrapper {
+.hotels--container {
+    display: grid;
+    grid-template-columns: 1.05fr 2fr;
+    gap: 16px;
     width: 100%;
     max-width: 1024px;
     margin: 16px auto;
     paadding: 0 8px;
-    display: flex;
 }
 
-.hotels-container {
-    display: grid;
-    grid-template-columns: 1.05fr 2fr;
-    width: 100%;
-    gap: 16px;
-}
-
-.hotels-search-container {
+.hotels--search-container {
     position: sticky;
     top: 24px;
     height: 462px;
@@ -22,103 +17,77 @@
     background-color: #febb02;
 }
 
-.hotels-search-container.big-height {
+.hotels--search-container.big-height {
     height: 624px;
 }
 
-.hotels-list-search-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.hotels-input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-h3 {
+h3.hotels--search-title {
     margin: 16px 0 0 16px;
     color: rgba(0, 53, 128, 1);
 }
 
-h5 {
-    margin: 8px 0;
+.hotels--input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-span.input-title {
+.hotels--input-container {
+    width: 75%;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+}
+
+span.hotels--input-title {
     align-self: flex-start;
     margin: 16px 0 8px 16px;
 }
 
-span.input-subtitle {
-    font-size: 14px;
-}
-
-.input-container {
-    width: 75%;
-    position: relative;
-}
-
-.date-range {
-    position: absolute;
-    left: -36px;
-    top: 40px;
-    border-radius: 8px;
-    z-index: 999;
-}
-
-input.destination {
-    width: 100%;
+input.hotels--destination {
     margin: 4px 0;
-    font-size: 14px;
-    border: none;
 }
 
-.input-container.dates {
-    width: 75%;
-    font-size: 14px;
-    border: none;
+.hotels--input-container.dates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
     border-radius: 4px;
     margin: 4px 16px;
     padding: 8px;
     background-color: white;
 }
 
-.input-container.prices {
-    padding: 0;
+.hotels--input-date-dropdown {
+    position: absolute;
+    left: -36px;
+    top: 38px;
+    border-radius: 4px;
+    z-index: 999;
 }
 
-input.prices {
+.hotels--input-option-sub-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input.hotels--prices {
     width: 72px;
     margin: 2px 0;
-    padding: 2px 8px;
-    font-size: 14px;
+    padding: 2px 4px 2px 8px;
     border: none;
 }
 
-.input-sub-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.search-option-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.search-option-item-sub {
-    min-width: 96px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.option-search-btn-wrapper {
+.hotels--option-btn-wrapper {
     min-width: 72px;
     margin: 2px 0;
     display: flex;
@@ -128,36 +97,36 @@ input.prices {
     font-size: 14px;
 }
 
-.option-search-btn {
+.hotels--option-btn {
     margin: 0;
     padding: 0 8px;
-    border: 1px solid transparent;
-    color: rgba(0, 113, 194, 1);
-    background-color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: color, background-color 0.2s ease-in-out;
+    border: 1px solid transparent;
+    color: rgba(0, 113, 194, 1);
+    background-color: white;
+    transition: border-color, color, background-color 0.2s ease-in-out;
 }
 
-.option-search-btn:not([disabled]):hover {
+.hotels--option-btn:not([disabled]):hover {
     border-color: rgba(0, 113, 194, 1);
     color: #febb02;
     background-color: rgba(0, 113, 194, 1);
 }
 
-.option-search-btn:disabled {
+.hotels--option-btn:disabled {
     color: white;
     background-color: transparent;
     cursor: not-allowed;
 }
 
-.hotels-search-btn-wrapper {
+.hotels--search-btn-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.hotels-search-btn {
+.hotels--search-btn {
     width: 75%;
     padding: 8px 16px;
     margin-top: 8px;
@@ -169,6 +138,6 @@ input.prices {
     transition: color, border-color 0.2s ease-in-out;
 }
 
-.hotels-search-btn:hover {
+.hotels--search-btn:hover {
     border-color: white;
 }
