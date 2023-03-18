@@ -19,6 +19,8 @@
 
 .mailList--form {
     margin: 8px;
+    display: flex;
+    flex-direction: row;
 }
 
 .mailList--input {
