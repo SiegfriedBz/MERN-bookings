@@ -1,7 +1,8 @@
 .hotel--container {
     display: flex;
+    flex-direction: column;
     margin: 24px auto;
-    justify-content: center;
+    align-items: center;
 }
 
 .hotel--wrapper {
@@ -39,23 +40,22 @@
     border-radius: 8px;
 }
 
-.hotel--text-blue-bold {
-    font-weight: bold;
-    color: rgba(0, 113, 194, 1);
-}
-
 .hotel--location-wrapper {
     display: flex;
     align-items: center;
 }
 
-.hotel--text-address {
-    margin-left: 8px;
+.hotel--text-bold {
+    font-weight: bold;
 }
 
 .hotel--text-blue-bold {
     color: rgba(0, 113, 194, 1);
     font-weight: bold;
+}
+
+.hotel--text-address {
+    margin-left: 8px;
 }
 
 .hotel--text-green-bold {
@@ -77,16 +77,21 @@
 .hotel--bottom-card {
     width: 100%;
     padding: 16px 0;
-    background-color: rgba(0, 113, 194, 0.5);
+    background-color: #ebf3ff;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+
+.hotel--bottom-card-description {
+    margin: 0 16px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .hotel--bottom-card-price {
-    margin: 16px 0;
-    font-size: 24px;
+    margin: 16px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -107,4 +112,55 @@
 
 .btn-top {
     align-self: flex-start;
+}
+
+.btn-bottom {
+    width: 100%;
+    margin: 16px 0 8px 0;
+}
+
+.hotel--slider {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hotel--slider-wrapper-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hotel--slider-image {
+    border-radius: 8px;
+    width: 80%;
+    height: 80vh;
+    /*object-fit: cover;*/
+}
+
+.hotel--slider-icon-X {
+    font-size: xx-large;
+    position: absolute;
+    top:20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 9999;
+    color: rgba(189, 195, 199, 1);
+}
+
+.hotel--slider-icon {
+    font-size: xxx-large;
+    margin: 20px;
+    cursor: pointer;
+    z-index: 9999;
+    color: rgba(189, 195, 199, 1);
 }

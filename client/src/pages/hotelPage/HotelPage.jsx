@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons"
+import {
+    faLocationDot,
+    faCircleXmark,
+    faArrowCircleLeft,
+    faArrowCircleRight
+} from "@fortawesome/free-solid-svg-icons"
 import './hotelPage.css'
 
 const initHotel = {
@@ -9,7 +14,7 @@ const initHotel = {
     city: '',
     images: [
         {id: 1, src: "https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1"},
-        {id: 2, src: "https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1"},
+        {id: 2, src: "https://cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-villas_300/dd0d7f8202676306a661aa4f0cf1ffab31286211.jpg"},
         {id: 3, src: "https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1"},
         {id: 4, src: "https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1"},
         {id: 5, src: "https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1"},
@@ -18,22 +23,71 @@ const initHotel = {
 }
 
 const HotelPage = () => {
-    const location = useLocation()
-    console.log(location.state)
+    // const location = useLocation()
+
+    const [slideId, setSlideId] = useState(1)
+    const [modalIsOpen, setModalIsOpen] = useState(false)
+
+    const handleOpenModal = (id) => {
+        setSlideId(id)
+        setModalIsOpen(true)
+    }
+
+    const handleSlide = (direction) => {
+        const maxId = initHotel.images.length -1
+        switch(direction) {
+            case 'L':
+                const sliderStarts = slideId === 0
+                setSlideId(prev => {
+                    return sliderStarts ? maxId : prev - 1
+                })
+                break
+            case 'R':
+                const sliderEnds = slideId === maxId
+                setSlideId(prev => {
+                    return sliderEnds ? 0 : prev + 1
+                })
+        }
+    }
 
     return(
         <div className='hotel--container'>
+            {modalIsOpen &&
+                <div className="hotel--slider">
+                    <FontAwesomeIcon
+                        onClick={() => setModalIsOpen(false)}
+                        className='hotel--slider-icon-X'
+                        icon={faCircleXmark}
+                    />
+                    <FontAwesomeIcon
+                        onClick={() => handleSlide('L')}
+                        className='hotel--slider-icon'
+                        icon={faArrowCircleLeft}
+                    />
+                    <div className="hotel--slider-wrapper-image">
+                        <img
+                            className='hotel--slider-image'
+                            src={initHotel.images[slideId].src}
+                            alt=""
+                        />
+                    </div>
+                    <FontAwesomeIcon
+                        onClick={() => handleSlide('R')}
+                        className='hotel--slider-icon'
+                        icon={faArrowCircleRight} />
+                </div>
+            }
             <div className="hotel--wrapper">
                 <div className="hotel--top-wrapper">
                     <div className="hotel--top-content">
-                        <h1 className='hotel--text-blue-bold'>Tower Street Appartments</h1>
+                        <h1 className='hotel--text-bold'>Tower Street Appartments</h1>
                         <div className="hotel--location-wrapper">
                             <FontAwesomeIcon icon={faLocationDot} />
                             <span className='hotel--text-address'>Paros, Greece</span>
                         </div>
                         <span className='hotel--text-blue-bold'>Excellent location - 500m from center</span>
-                        <span className='hotel--text-green-bold'>Entire studio - 1 bathroom - 21m2 - Bed King size </span>
-                        <span className='hotel--text-blue-bold'>Excellent location - 500m from center</span>
+                        <span className='hotel--text-bold'>Entire studio - 1 bathroom - 21m2 - Bed King size </span>
+                        <span className='hotel--text-green-bold'>Excellent location - 500m from center</span>
                     </div>
                     <button className="hotel--book-btn btn-top">Book now</button>
                 </div>
@@ -45,6 +99,7 @@ const HotelPage = () => {
                                 className='hotel--image'
                                 src={img.src}
                                 alt=""
+                                onClick={() => handleOpenModal(img.id)}
                             />
                         )
                     })
@@ -52,7 +107,7 @@ const HotelPage = () => {
                 </div>
                 <div className="hotel--bottom-wrapper">
                     <div className="hotel--bottom-description">
-                        <h3>GRAB YOUR DEAL</h3>
+                        <h2>Stay in the heart of Paros</h2>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -62,9 +117,9 @@ const HotelPage = () => {
                         </p>
                     </div>
                     <div className="hotel--bottom-card">
-                        <span className="hotel--bottom-card-content">Lorem ipsum dolor sit amet</span>
+                        <span className="hotel--bottom-card-description">Perfect for a 9 nights stay!</span>
                         <span className="hotel--bottom-card-price">$945 (9 nights)</span>
-                        <button className="hotel--book-btn">Book now</button>
+                        <button className="hotel--book-btn btn-bottom">Book now</button>
                     </div>
                 </div>
             </div>
