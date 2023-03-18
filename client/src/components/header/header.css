@@ -63,7 +63,7 @@
     border-color: white;
 }
 
-.header--search {
+.header--search-bar {
     position: absolute;
     bottom: -26px;
     height: 48px;
@@ -108,10 +108,11 @@
     color: gray;
 }
 
-.header--date-range {
+.header--date-range-dropdown {
     position: absolute;
     top: 52px;
-    left: 250px;
+    left: 242px;
+    border-radius: 4px;
 }
 
 .header--options {

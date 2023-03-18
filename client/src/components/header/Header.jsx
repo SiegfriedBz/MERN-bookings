@@ -116,7 +116,7 @@ const Header = (props) => {
             {showFullHeader &&
                 <div
                     ref={headerSearchDiv}
-                    className="header--search"
+                    className="header--search-bar"
                 >
                     <div className="header--search-item">
                         <FontAwesomeIcon icon={faBed} className='header--icon'/>
@@ -142,7 +142,7 @@ const Header = (props) => {
                         </div>
                         {dateRangeIsOpen &&
                             <DateRange
-                                className='header--date-range'
+                                className='header--date-range-dropdown'
                                 ranges={[dateRange]}
                                 onChange={handleChangeDateRange}
                             />
