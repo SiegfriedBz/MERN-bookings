@@ -12,21 +12,21 @@ const MailList = ({ onUserMailListSubscribe }) => {
     }
 
     return(
-        <div className='mailList-container'>
+        <div className='mailList--container'>
             <h1>Save time, Save money!</h1>
             <span>Sign up and we ll send the best deals to you</span>
             <form
                 onSubmit={handleSubmit}
-                className="mailList-form"
+                className="mailList--form"
             >
                 <input
                     type="email"
-                    className="mailList-input"
+                    className="mailList--input"
                     value={email}
                     placeholder='Your email'
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <button className="mailList-btn">Subscribe</button>
+                <button className="mailList--btn">Subscribe</button>
             </form>
         </div>
     )

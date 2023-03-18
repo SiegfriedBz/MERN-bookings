@@ -1,4 +1,4 @@
-.hotel-list-card {
+.hotel--list-card {
     display: flex;
     border-radius: 8px;
     border: 1px solid #febb02;
@@ -8,13 +8,13 @@
     font-size: 14px;
 }
 
-.hotel-list-card--img {
+.hotel--list-card--img {
     width: 224px;
     border-radius: 8px;
     overflow: hidden;
 }
 
-.hotel-list-card--body {
+.hotel--list-card--body {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -22,22 +22,22 @@
     margin: 0 0 0 8px;
 }
 
-.hotel-list-card--body-top {
+.hotel--list-card--body-top {
     display: flex;
     justify-content: space-between;
 }
 
-.hotel-list-card--body-content {
+.hotel--list-card--body-content {
     display: flex;
     justify-content: space-between;
 }
 
-.hotel-list-card--body-content-left {
+.hotel--list-card--body-content-left {
     display: flex;
     flex-direction: column;
 }
 
-.hotel-list-card--body-content-left > span {
+.hotel--list-card--body-content-left > span {
     margin: 4px 0;
 }
 
@@ -73,7 +73,7 @@ span.green-text {
     color: rgb(92, 184, 92);
 }
 
-.hotel-list-card--body-content-right {
+.hotel--list-card--body-content-right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -95,7 +95,7 @@ span.grey {
     color: grey;
 }
 
-.hotel-list-card--body-btn {
+.hotel--list-card--body-btn {
     padding: 4px 8px;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -105,6 +105,6 @@ span.grey {
     transition: border-color 0.2s ease-in-out;
 }
 
-.hotel-list-card--body-btn:hover {
+.hotel--list-card--body-btn:hover {
     border-color: #febb02;
 }

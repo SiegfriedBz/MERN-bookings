@@ -1,4 +1,4 @@
-.mailList-container {
+.mailList--container {
     background-color: rgba(0, 53, 128, 1);
     width: 100%;
     margin: 24px 0 0;
@@ -9,26 +9,26 @@
     color: white;
 }
 
-.mailList-container h1 {
+.mailList--container h1 {
     margin: 0 0 16px;
 }
 
-.mailList-container span {
+.mailList--container span {
     margin: 0 0 8px;
 }
 
-.mailList-form {
+.mailList--form {
     margin: 8px;
 }
 
-.mailList-input {
+.mailList--input {
     outline: none;
     border-radius: 8px;
     padding: 4px 8px;
     cursor: pointer;
 }
 
-.mailList-btn {
+.mailList--btn {
     margin: 0 0 0 8px;
     padding: 8px 16px;
     height: 100%;
@@ -40,6 +40,6 @@
     transition: border-color 0.2s ease-in-out;
  }
 
-.mailList-btn:hover {
+.mailList--btn:hover {
     border-color: white;
 }

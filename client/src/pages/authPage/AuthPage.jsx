@@ -29,56 +29,56 @@ const AuthPage = ({ onUserAuth }) => {
     }
 
     const registerContent = (
-        <div className="auth-card-container">
-            <h3 className='auth-title'>Register</h3>
+        <div className="auth--card-container">
+            <h3 className='auth--title'>Register</h3>
             <form onSubmit={handleSubmit}
-                className="auth-form">
+                className="auth--form">
                 <input
                     type="text"
                     name='name'
                     value={user.name}
                     onChange={handleChange}
                     placeholder='Your name...'
-                    className="auth-name"/>
+                    className="auth"/>
                 <input
                     type="email"
                     name='email'
                     value={user.email}
                     onChange={handleChange}
                     placeholder='Your email...'
-                    className="auth-email"/>
+                    className="auth"/>
                 <input
                     type="password"
                     name='password'
                     value={user.password}
                     onChange={handleChange}
                     placeholder='Your password...'
-                    className="auth-password"/>
-                <button className='auth-btn'>Submit</button>
+                    className="auth"/>
+                <button className='auth--btn'>Submit</button>
             </form>
         </div>
     )
 
     const loginContent = (
-        <div className="auth-card-container">
-            <h3 className='auth-title'>Login</h3>
+        <div className="auth--card-container">
+            <h3 className='auth--title'>Login</h3>
             <form onSubmit={handleSubmit}
-                  className="auth-form">
+                  className="auth--form">
                 <input
                     type="text"
                     name='name'
                     value={user.name}
                     onChange={handleChange}
                     placeholder='Your name...'
-                    className="auth-name"/>
+                    className="auth"/>
                 <input
                     type="password"
                     name='password'
                     value={user.password}
                     onChange={handleChange}
                     placeholder='Your password...'
-                    className="auth-password"/>
-                <button className='auth-btn'>Submit</button>
+                    className="auth"/>
+                <button className='auth--btn'>Submit</button>
             </form>
         </div>
     )

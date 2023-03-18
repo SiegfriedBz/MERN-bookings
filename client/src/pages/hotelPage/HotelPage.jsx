@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import './hotelPage.css'
 
 const initHotel = {
@@ -5,10 +6,12 @@ const initHotel = {
     city: ''
 }
 
-const HotelPage = ({ hotel }) => {
+const HotelPage = () => {
+    const location = useLocation()
+    console.log(location.state)
 
     return(
-        <div className='hotel-container'>
+        <div className='hotel--container'>
 
         </div>
     )
