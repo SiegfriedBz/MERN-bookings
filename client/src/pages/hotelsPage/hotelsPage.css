@@ -85,6 +85,7 @@ input.prices {
     position: absolute;
     left: -36px;
     top: 40px;
+    border-radius: 8px;
     z-index: 999;
 }
 
@@ -145,6 +146,7 @@ input.prices {
 .hotels-search-btn {
     width: 75%;
     padding: 8px 16px;
+    margin-top: 8px;
     font-weight: bold;
     border-radius: 8px;
     border: none;
