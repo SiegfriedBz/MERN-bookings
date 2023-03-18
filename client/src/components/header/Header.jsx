@@ -17,30 +17,22 @@ import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import './header.css'
 
-const initDestination = 'Paros Greece'
+const Header = (props) => {
 
-const initDateRange = {
-    startDate: new Date(),
-    endDate: new Date(Date.now() + (3600 * 1000 * 24)),
-    key: 'selection'
-}
-
-const initRoomOptions = {
-    adults: 1,
-    children: 0,
-    rooms: 1
-}
-
-const Header = () => {
-    const [destination, setDestination] = useState(initDestination)
-    const [dateRange, setDateRange] = useState(initDateRange)
-    const [dateRangeIsOpen, setDateRangeIsOpen] = useState(false)
-    const [roomOptions, setRoomOptions] = useState(initRoomOptions)
-    const [roomOptionsIsOpen, setRoomOptionsIsOpen] = useState(false)
-    const [showFullHeader, setShowFullHeader] = useState(true)
+    const {
+        destination,
+        dateRange,
+        dateRangeIsOpen, setDateRangeIsOpen,
+        roomOptions,
+        roomOptionsIsOpen, setRoomOptionsIsOpen,
+        showFullHeader, setShowFullHeader,
+        handleChangeDestination,
+        handleChangeDateRange,
+        handleChangeRoomOptions
+    } = props
 
     const { pathname } = useLocation()
-    const headerSearch = useRef(null)
+    const headerSearchDiv = useRef(null)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -49,7 +41,7 @@ const Header = () => {
 
     useEffect(() => {
         const handleCloseDropdowns = (e) => {
-            if(headerSearch.current && !headerSearch.current.contains(e.target)) {
+            if(headerSearchDiv.current && !headerSearchDiv.current.contains(e.target)) {
                 setDateRangeIsOpen(false)
                 setRoomOptionsIsOpen(false)
             }
@@ -58,33 +50,10 @@ const Header = () => {
         return () => {
             document.removeEventListener('click', handleCloseDropdowns)
         }
-    }, [headerSearch])
-
-    const handleChangeDestination = (e) => {
-        setDestination(e.target.value)
-    }
-
-    const handleChangeDateRange = (e) => {
-        setDateRange({...dateRange, ...e.selection})
-    }
-
-    const handleChangeOptions = (field, change) => {
-        setRoomOptions(prev => {
-            return {
-                ...prev,
-                [field]: change === '+' ? prev[field] +1 : prev[field] -1
-            }
-        })
-    }
+    }, [headerSearchDiv])
 
     const handleSearch = (e) => {
-        navigate('/hotels', {
-            state: {
-                headerDestination: destination,
-                headerDateRange: dateRange,
-                headerRoomOptions: roomOptions
-            }}
-        )
+        navigate('/hotels')
     }
 
     const headerContainerClass = clsx('header-container', {
@@ -130,7 +99,7 @@ const Header = () => {
             </div>
             {showFullHeader &&
                 <div
-                    ref={headerSearch}
+                    ref={headerSearchDiv}
                     className="header-search"
                 >
                     <div className="header-search-item">
@@ -182,16 +151,18 @@ const Header = () => {
                                     <span className="option-text">Adults</span>
                                     <div className="option-item-sub">
                                         <button
-                                            disabled={btnIsDisabled('adults')}
-                                            onClick={() => handleChangeOptions('adults', '-')}
+                                            name='adults-minus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-btn"
+                                            disabled={btnIsDisabled('adults')}
                                         >-
                                         </button>
                                         <span className="option-counter">
                                         {roomOptions.adults}
                                     </span>
                                         <button
-                                            onClick={() => handleChangeOptions('adults', '+')}
+                                            name='adults-plus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-btn"
                                         >+
                                         </button>
@@ -201,16 +172,18 @@ const Header = () => {
                                     <span className="option-text">Children</span>
                                     <div className="option-item-sub">
                                         <button
-                                            disabled={btnIsDisabled('children')}
-                                            onClick={() => handleChangeOptions('children', '-')}
+                                            name='children-minus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-btn"
+                                            disabled={btnIsDisabled('children')}
                                         >-
                                         </button>
                                         <span className="option-counter">
                                             {roomOptions.children}
                                         </span>
                                         <button
-                                            onClick={() => handleChangeOptions('children', '+')}
+                                            name='children-plus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-btn"
                                         >+
                                         </button>
@@ -220,16 +193,18 @@ const Header = () => {
                                     <span className="option-text">Rooms</span>
                                     <div className="option-item-sub">
                                         <button
-                                            disabled={btnIsDisabled('rooms')}
-                                            onClick={() => handleChangeOptions('rooms', '-')}
+                                            name='rooms-minus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-btn"
+                                            disabled={btnIsDisabled('rooms')}
                                         >-
                                         </button>
                                         <span className="option-counter">
                                             {roomOptions.rooms}
                                         </span>
                                         <button
-                                            onClick={() => handleChangeOptions('rooms', '+')}
+                                            name='rooms-plus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-btn"
                                         >+
                                         </button>

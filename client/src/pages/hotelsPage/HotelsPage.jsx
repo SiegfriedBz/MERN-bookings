@@ -10,63 +10,24 @@ import 'react-date-range/dist/theme/default.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 
-const initDestination = 'Paros Greece'
-
-const initDateRange = {
-    startDate: new Date(),
-    endDate: new Date(Date.now() + (3600 * 1000 * 24)),
-    key: 'selection'
-}
-
-const initRoomOptions = {
-    adults: 1,
-    children: 0,
-    rooms: 1
-}
-
-const initPriceRange = { minPrice: '', maxPrice: '' }
-
 const initSearchResults = [
     { id: 1, name: 'A' },
     { id: 2, name: 'B' }
 ]
 
-const HotelsPage = () => {
+const HotelsPage = (props) => {
 
-    const location = useLocation()
-    const { headerDestination, headerDateRange, headerRoomOptions } = location.state
+    const {
+        destination,
+        dateRange,
+        dateRangeIsOpen, setDateRangeIsOpen,
+        roomOptions,
+        handleChangeDestination,
+        handleChangeDateRange,
+        handleChangeRoomOptions
+    } = props
 
-    const [destination, setDestination] = useState(headerDestination || initDestination)
-    const [dateRange, setDateRange] = useState(headerDateRange || initDateRange)
-    const [dateRangeIsOpen, setDateRangeIsOpen] = useState(false)
-    const [roomOptions, setRoomOptions] = useState(headerRoomOptions || initRoomOptions)
-    const [priceRange, setPriceRange] = useState(initPriceRange)
     const [searchResults, setSearchResults] = useState(initSearchResults)
-
-    // useEffect(() => {
-    //
-    // }, [])
-
-    const handleChangeDestination = (e) => {
-        setDestination(e.target.value)
-    }
-
-    const handleChangeDateRange = (e) => {
-        setDateRange({...dateRange, ...e.selection})
-    }
-
-    const handleChangeRoomOptions = (field, change) => {
-        setRoomOptions(prev => {
-            return { ...prev, [field]: change === '+' ? prev[field] +1 : prev[field] -1 }
-        })
-    }
-
-    const handleChangePriceRange = (e) => {
-        const { name, value } = e.target
-        setPriceRange(prev => {
-            return { ...prev, [name]: value }
-        })
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -153,8 +114,8 @@ const HotelsPage = () => {
                                         className='prices'
                                         type="number"
                                         name='minPrice'
-                                        value={priceRange.minPrice}
-                                        onChange={handleChangePriceRange}
+                                        value={roomOptions.minPrice}
+                                        onChange={handleChangeRoomOptions}
                                     />
                                 </div>
                                 <div className='input-sub-container'>
@@ -165,8 +126,8 @@ const HotelsPage = () => {
                                         className='prices'
                                         type="number"
                                         name='maxPrice'
-                                        value={priceRange.maxPrice}
-                                        onChange={handleChangePriceRange}
+                                        value={roomOptions.maxPrice}
+                                        onChange={handleChangeRoomOptions}
                                     />
                                 </div>
                             </div>
@@ -178,16 +139,18 @@ const HotelsPage = () => {
                                     </span>
                                     <div className="option-search-btn-wrapper">
                                         <button
-                                            disabled={btnIsDisabled('adults')}
-                                            onClick={() => handleChangeRoomOptions('adults', '-')}
+                                            name='adults-minus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-search-btn"
+                                            disabled={btnIsDisabled('adults')}
                                         >-
                                         </button>
                                         <span className="option-search-counter">
                                             {roomOptions.adults}
                                         </span>
                                         <button
-                                            onClick={() => handleChangeRoomOptions('adults', '+')}
+                                            name='adults-plus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-search-btn"
                                         >+
                                         </button>
@@ -200,16 +163,18 @@ const HotelsPage = () => {
                                     </span>
                                     <div className="option-search-btn-wrapper">
                                         <button
-                                            disabled={btnIsDisabled('children')}
-                                            onClick={() => handleChangeRoomOptions('children', '-')}
+                                            name='children-minus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-search-btn"
+                                            disabled={btnIsDisabled('children')}
                                         >-
                                         </button>
                                         <span className="option-search-counter">
                                             {roomOptions.children}
                                         </span>
                                         <button
-                                            onClick={() => handleChangeRoomOptions('children', '+')}
+                                            name='children-plus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-search-btn"
                                         >+
                                         </button>
@@ -222,16 +187,18 @@ const HotelsPage = () => {
                                     </span>
                                     <div className="option-search-btn-wrapper">
                                         <button
-                                            disabled={btnIsDisabled('rooms')}
-                                            onClick={() => handleChangeRoomOptions('rooms', '-')}
+                                            name='rooms-minus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-search-btn"
+                                            disabled={btnIsDisabled('rooms')}
                                         >-
                                         </button>
                                         <span className="option-search-counter">
                                             {roomOptions.rooms}
                                         </span>
                                         <button
-                                            onClick={() => handleChangeRoomOptions('rooms', '+')}
+                                            name='rooms-plus'
+                                            onClick={handleChangeRoomOptions}
                                             className="option-search-btn"
                                         >+
                                         </button>
