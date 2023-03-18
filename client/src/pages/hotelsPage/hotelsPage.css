@@ -51,6 +51,7 @@ span.hotels--input-title {
 
 input.hotels--destination {
     margin: 4px 0;
+    padding: 8px;
 }
 
 .hotels--input-container.dates {
