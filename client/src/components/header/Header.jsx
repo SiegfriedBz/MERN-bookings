@@ -52,6 +52,22 @@ const Header = (props) => {
         }
     }, [headerSearchDiv])
 
+    const toggleDropdowns = (source) => {
+        switch (source) {
+            case 'date':
+                if (!dateRangeIsOpen && roomOptionsIsOpen) {
+                    setRoomOptionsIsOpen(false)
+                }
+                setDateRangeIsOpen(prev => !prev)
+                break;
+            case 'options':
+                if (!roomOptionsIsOpen && dateRangeIsOpen) {
+                    setDateRangeIsOpen(false)
+                }
+                setRoomOptionsIsOpen(prev => !prev)
+        }
+    }
+
     const handleSearch = (e) => {
         navigate('/hotels')
     }
@@ -115,7 +131,7 @@ const Header = (props) => {
                     <div className="header--search-item">
                         <div
                             className='header--search-item-sub'
-                            onClick={() => setDateRangeIsOpen((prev) => !prev)}
+                            onClick={() => toggleDropdowns('date')}
                         >
                             <FontAwesomeIcon icon={faCalendarDays} className='header--icon'/>
                             <span className='header--search-text'>
@@ -135,7 +151,7 @@ const Header = (props) => {
                     <div className="header--search-item">
                         <div
                             className='header--search-item-sub'
-                            onClick={() => setRoomOptionsIsOpen(prev => !prev)}
+                            onClick={() => toggleDropdowns('options')}
                         >
                             <FontAwesomeIcon icon={faUser} className='header--icon'/>
                             <span className='header--search-text'>
