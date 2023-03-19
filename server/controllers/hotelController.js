@@ -13,6 +13,29 @@ const getHotels = async (req, res, next) => {
     }
 }
 
+// /hotels/countByCity?cities=paros,crete
+const getHotelsCountByCity = async (req, res, next) => {
+    const cities = req.query.cities
+    const citiesArray = cities
+        .split(',')
+        .map(city => {
+        return city.charAt(0).toUpperCase() + city.slice(1)
+    })
+     try {
+        const hotelsCountByCityList = await Promise.all(
+            citiesArray.map(city => {
+                return Hotel.countDocuments({city: city})
+            })
+        )
+         console.log('-------')
+         console.log(hotelsCountByCityList)
+         console.log('-------')
+        res.status(200).json(hotelsCountByCityList)
+    } catch(error) {
+        next(error)
+    }
+}
+
 const getHotel = async (req, res, next) => {
     const { id } = req.params
 
@@ -87,4 +110,11 @@ const deleteHotel = async (req, res, next) => {
     }
 }
 
-module.exports = { getHotels, getHotel, createHotel, updateHotel, deleteHotel }
+module.exports = {
+    getHotels,
+    getHotelsCountByCity,
+    getHotel,
+    createHotel,
+    updateHotel,
+    deleteHotel
+}

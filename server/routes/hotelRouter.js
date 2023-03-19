@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const {
     getHotels,
+    getHotelsCountByCity,
     getHotel,
     createHotel,
     updateHotel,
@@ -10,9 +11,9 @@ const {
 const {
     requireAdminAuthorization
 } = require('../utils/middleware/checkAccessTokenCookie')
-// Admin restricted
 
 router.get('/', getHotels)
+router.get('/countByCity', getHotelsCountByCity)
 router.get('/:id', getHotel)
 router.post('/', requireAdminAuthorization, createHotel) // Admin restricted
 router.patch('/:id', requireAdminAuthorization, updateHotel) // Admin restricted
