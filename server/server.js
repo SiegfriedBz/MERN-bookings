@@ -28,7 +28,7 @@ app.use('/api/hotels', hotelRouter)
 app.use('/api/rooms', roomRouter)
 
 // middleware/error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     const errStatus = err.status || 500
     const errMsg = err.message || 'Something went wrong'
     return res.status(errStatus).json({
