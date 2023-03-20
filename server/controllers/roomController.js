@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Room = require('../models/roomModel')
-const Hotel = require('../models/hotelModel')
+const Hotel = require('../models/propertyModel')
 const customError = require('../utils/error')
 
 const getRooms = async (req, res, next) => {

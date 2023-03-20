@@ -15,7 +15,6 @@ const requireAuthentication = (req, res, next) => {
         if (!_id) {
             throw customError(403, 'Authentication failed')
         }
-
         // authenticated user (token && valid token)
         req.isAdmin = isAdmin
         next()

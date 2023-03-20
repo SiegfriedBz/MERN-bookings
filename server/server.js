@@ -4,7 +4,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const authRouter = require('./routes/authRouter')
 const userRouter = require('./routes/userRouter')
-const hotelRouter = require('./routes/hotelRouter')
+const propertyRouter = require('./routes/propertyRouter')
 const roomRouter = require('./routes/roomRouter')
 const { PORT, MONGO_URI } = require('./utils/config')
 
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 // middleware/routes
 app.use('/api/auth', authRouter)
 app.use('/api/users', userRouter)
-app.use('/api/hotels', hotelRouter)
+app.use('/api/properties', propertyRouter)
 app.use('/api/rooms', roomRouter)
 
 // middleware/error handler
