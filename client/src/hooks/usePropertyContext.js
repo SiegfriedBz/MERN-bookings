@@ -3,8 +3,12 @@ import { PropertyContext } from '../contexts/propertyContext'
 
 const usePropertyContext = () => {
     const context = useContext(PropertyContext)
-    const { properties, dispatch } = context
-    console.log('properties', properties)
+    // const {
+    //     properties,
+    //     propertiesCountByCity,
+    //     propertiesCountByCategory,
+    //     dispatch
+    // } = context
 
     return context
 }
