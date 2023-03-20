@@ -13,12 +13,7 @@ const BASE_URL = 'http://localhost:3001/api/properties'
 
 const usePropertyFetch = () =>  {
 
-    const {
-        properties,
-        propertiesCountByCity,
-        propertiesCountByCategory,
-        dispatch
-    } = usePropertyContext()
+    const { dispatch } = usePropertyContext()
 
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(false)
@@ -38,16 +33,12 @@ const usePropertyFetch = () =>  {
                 url: `${BASE_URL}/countByCategory`,
                 query: [{
                         queryKey: 'categories',
-                        queryParams: ['Hotels', 'Apartments', 'Resorts', 'Villas', 'Cabins']
+                        queryParams: ['Hotel', 'Apartment', 'Resort', 'Villa', 'Cabin']
                 }],
                 dispatchType: SET_PROPERTIES_COUNT_BY_CATEGORY
             })
         })()
     }, [])
-
-    console.log('properties', properties)
-    console.log('propertiesCountByCity', propertiesCountByCity)
-    console.log('propertiesCountByCategory', propertiesCountByCategory)
 
     // {query: [{ queryKey:'', queryParams: [] }]}
     const fetchURL = (url, query) => {
@@ -123,7 +114,7 @@ const usePropertyFetch = () =>  {
         await fetchData(...args)
     }
 
-    // getPropertiesCountByCategory({query: [{queryKey: 'categories', queryParams: ['Hotels', 'Apartments', 'Resorts', 'Villas', 'Cabins']}]})
+    // getPropertiesCountByCategory({query: [{queryKey: 'categories', queryParams: ['Hotel', 'Apartment', 'Resort', 'Villa', 'Cabin']}]})
     // route /api/properties/countByCategory?categories=zurich,lugano
     const getPropertiesCountByCategory = async (...args) => {
         await fetchData(...args)
@@ -132,9 +123,10 @@ const usePropertyFetch = () =>  {
     return {
         isLoading,
         error,
-        properties,
-        propertiesCountByCity,
-        propertiesCountByCategory
+        getProperties,
+        // createProperty,
+        // updateProperty,
+        // deleteProperty
     }
 }
 
