@@ -25,7 +25,7 @@ const usePropertyFetch = () =>  {
                 url: `${BASE_URL}/countByCity`,
                 query: [{
                         queryKey: 'cities',
-                        queryParams: ['zurich', 'lugano']
+                        queryParams: ['athens', 'paros', 'valletta']
                 }],
                 dispatchType: SET_PROPERTIES_COUNT_BY_CITY
             })
