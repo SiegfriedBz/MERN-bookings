@@ -22,11 +22,11 @@ const initState = {
         {}
     ],
     propertiesCountByCategory: [
-        {   Hotels: '',
-            Apartments: '',
-            Resorts: '',
-            Villas: '',
-            Cabins: ''
+        {   Hotel: '',
+            Apartment: '',
+            Resort: '',
+            Villa: '',
+            Cabin: ''
         }
     ],
 }
