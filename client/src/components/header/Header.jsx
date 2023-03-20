@@ -22,10 +22,13 @@ const Header = (props) => {
     const {
         destination,
         dateRange,
-        dateRangeIsOpen, setDateRangeIsOpen,
+        dateRangeIsOpen,
+        setDateRangeIsOpen,
         roomOptions,
-        roomOptionsIsOpen, setRoomOptionsIsOpen,
-        showFullHeader, setShowFullHeader,
+        roomOptionsIsOpen,
+        setRoomOptionsIsOpen,
+        showFullHeader,
+        setShowFullHeader,
         handleChangeDestination,
         handleChangeDateRange,
         handleChangeRoomOptions
@@ -69,7 +72,7 @@ const Header = (props) => {
     }
 
     const handleSearch = (e) => {
-        navigate('/hotels')
+        navigate('/properties')
     }
 
     const headerContainerClass = clsx('header--container', {
