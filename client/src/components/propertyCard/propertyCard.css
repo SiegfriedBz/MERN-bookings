@@ -1,4 +1,4 @@
-.property-list-card--container {
+.pppc--container {
     display: flex;
     border-radius: 8px;
     border: 1px solid rgba(0, 113, 194, 1);
@@ -7,13 +7,13 @@
     font-size: 14px;
 }
 
-.property-list-card--img {
+.pppc--img {
     width: 224px;
     border-radius: 8px 0 0 8px;
     overflow: hidden;
 }
 
-.property-list-card--body {
+.pppc--body {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -22,31 +22,31 @@
     padding: 8px;
 }
 
-.property-list-card--top {
+.pppc--top {
     display: flex;
     justify-content: space-between;
 }
 
-.property-list-card--content {
+.pppc--content {
     display: flex;
     justify-content: space-between;
 }
 
-.property-list-card--content-left {
+.pppc--content-left {
     display: flex;
     flex-direction: column;
 }
 
-.property-list-card--content-left > span {
+.pppc--content-left > span {
     margin: 4px 0;
 }
 
-span.property-list-card--text-blue-bold {
+span.pppc--text-blue-bold {
     font-weight: bold;
     color: rgba(0, 113, 194, 1);
 }
 
-span.property-list-card--blue-pill {
+span.pppc--blue-pill {
     color: white;
     background-color: rgba(0, 113, 194, 1);
     width: fit-content;
@@ -55,7 +55,7 @@ span.property-list-card--blue-pill {
     padding: 2px 4px;
 }
 
-span.property-list-card--green-pill {
+span.pppc--green-pill {
     color: white;
     background-color: rgb(92, 184, 92);
     width: fit-content;
@@ -64,38 +64,38 @@ span.property-list-card--green-pill {
     padding: 2px 4px;
 }
 
-span.property-list-card--text-bold {
+span.pppc--text-bold {
     font-weight: bold;
 }
 
-span.property-list-card--text-green-bold {
+span.pppc--text-green-bold {
     font-weight: bold;
     color: rgb(92, 184, 92);
 }
 
-.property-list-card--content-right {
+.pppc--content-right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.property-list-card--price-wrapper {
+.pppc--price-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-span.property-list-card--price {
+span.pppc--price {
     margin-top: 24px;
     font-size: 24px;
 }
 
-span.property-list-card--text-grey {
+span.pppc--text-grey {
     font-size: 8px;
     color: grey;
 }
 
-.property-list-card--btn {
+.pppc--btn {
     padding: 4px 8px;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -105,6 +105,6 @@ span.property-list-card--text-grey {
     transition: border-color 0.2s ease-in-out;
 }
 
-.property-list-card--btn:hover {
+.pppc--btn:hover {
     border-color: #febb02;
 }
