@@ -31,7 +31,7 @@ Authorization - middleware
     + updateUser // 'self' restricted -> params: id ; body: name, email, password
     + deleteUser // 'self' restricted -> params: id
 - hotelRoutes
-    + getHotels
+    + getProperties
     + getHotel
     + createHotel // Admin restricted
     + updateHotel // Admin restricted
