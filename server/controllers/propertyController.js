@@ -50,14 +50,12 @@ const getPropertiesCountByCategory = async (req, res, next) => {
         .map(category => {
             return category.charAt(0).toUpperCase() + category.slice(1)
         })
-    console.log('categoriesArray', categoriesArray)
     try {
         const propertiesCountByCategoryArray = await Promise.all(
             categoriesArray.map(category => {
                 return Property.countDocuments({category: category})
             })
         )
-        console.log('propertiesCountByCategoryArray', propertiesCountByCategoryArray)
         const data = categoriesArray.reduce((acc, curr, index) => {
             acc[curr] = propertiesCountByCategoryArray[index]
             return acc
