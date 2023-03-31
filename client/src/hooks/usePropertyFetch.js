@@ -2,9 +2,6 @@ import { useState, useEffect } from 'react'
 import usePropertyContext from './usePropertyContext'
 import {
     SET_PROPERTIES,
-    CREATE_PROPERTY,
-    UPDATE_PROPERTY,
-    DELETE_PROPERTY,
     SET_PROPERTIES_COUNT_BY_CITY,
     SET_PROPERTIES_COUNT_BY_CATEGORY
 } from '../reducers/propertyActionTypes'
@@ -120,12 +117,20 @@ const usePropertyFetch = () =>  {
         await fetchData(...args)
     }
 
+    const createProperty = async (...args) => {
+        await fetchData(...args)
+    }
+
+    const updateProperty = async (...args) => {
+        // await fetchData(...args)
+    }
+
     return {
         isLoading,
         error,
         getProperties,
-        // createProperty,
-        // updateProperty,
+        createProperty,
+        updateProperty,
         // deleteProperty
     }
 }
