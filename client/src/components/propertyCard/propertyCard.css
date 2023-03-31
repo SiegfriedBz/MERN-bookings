@@ -1,4 +1,4 @@
-.pppc--container {
+.pc--container {
     display: flex;
     border-radius: 8px;
     border: 1px solid rgba(0, 113, 194, 1);
@@ -7,13 +7,13 @@
     font-size: 14px;
 }
 
-.pppc--img {
+.pc--img {
     width: 224px;
     border-radius: 8px 0 0 8px;
     overflow: hidden;
 }
 
-.pppc--body {
+.pc--body {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -22,31 +22,31 @@
     padding: 8px;
 }
 
-.pppc--top {
+.pc--top {
     display: flex;
     justify-content: space-between;
 }
 
-.pppc--content {
+.pc--content {
     display: flex;
     justify-content: space-between;
 }
 
-.pppc--content-left {
+.pc--content-left {
     display: flex;
     flex-direction: column;
 }
 
-.pppc--content-left > span {
+.pc--content-left > span {
     margin: 4px 0;
 }
 
-span.pppc--text-blue-bold {
+span.pc--text-blue-bold {
     font-weight: bold;
     color: rgba(0, 113, 194, 1);
 }
 
-span.pppc--blue-pill {
+span.pc--blue-pill {
     color: white;
     background-color: rgba(0, 113, 194, 1);
     width: fit-content;
@@ -55,7 +55,7 @@ span.pppc--blue-pill {
     padding: 2px 4px;
 }
 
-span.pppc--green-pill {
+span.pc--green-pill {
     color: white;
     background-color: rgb(92, 184, 92);
     width: fit-content;
@@ -64,38 +64,38 @@ span.pppc--green-pill {
     padding: 2px 4px;
 }
 
-span.pppc--text-bold {
+span.pc--text-bold {
     font-weight: bold;
 }
 
-span.pppc--text-green-bold {
+span.pc--text-green-bold {
     font-weight: bold;
     color: rgb(92, 184, 92);
 }
 
-.pppc--content-right {
+.pc--content-right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.pppc--price-wrapper {
+.pc--price-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-span.pppc--price {
+span.pc--price {
     margin-top: 24px;
     font-size: 24px;
 }
 
-span.pppc--text-grey {
+span.pc--text-grey {
     font-size: 8px;
     color: grey;
 }
 
-.pppc--btn {
+.pc--btn {
     padding: 4px 8px;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -105,6 +105,6 @@ span.pppc--text-grey {
     transition: border-color 0.2s ease-in-out;
 }
 
-.pppc--btn:hover {
+.pc--btn:hover {
     border-color: #febb02;
 }

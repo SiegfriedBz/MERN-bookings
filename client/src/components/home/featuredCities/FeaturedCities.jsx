@@ -1,5 +1,5 @@
 import './featuredCities.css'
-import usePropertyContext from '../../hooks/usePropertyContext'
+import usePropertyContext from '../../../hooks/usePropertyContext'
 
 const FeaturedCities = () => {
 

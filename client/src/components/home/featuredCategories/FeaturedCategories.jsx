@@ -1,5 +1,5 @@
 import './featuredCategories.css'
-import usePropertyContext from '../../hooks/usePropertyContext'
+import usePropertyContext from '../../../hooks/usePropertyContext'
 
 const FeaturedCategories = () => {
     const { propertiesCountByCategory } = usePropertyContext()
