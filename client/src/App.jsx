@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import usePropertyFetch from './hooks/usePropertyFetch'
-import Navbar from "./components/navbar/Navbar"
-import Header from "./components/header/Header"
-import Footer from './components/footer/Footer'
-import MailList from './components/mailList/MailList'
+import Navbar from "./components/shared/navbar/Navbar"
+import Header from "./components/shared/header/Header"
+import Footer from './components/shared/footer/Footer'
+import MailList from './components/home/mailList/MailList'
 import Home from './pages/homePage/HomePage'
 import AuthPage from './pages/authPage/AuthPage'
 import PropertiesPage from './pages/propertiesPage/PropertiesPage'
@@ -31,7 +31,6 @@ const initRoomOptions = {
 function App() {
 
     const { properties, isLoading, error } = usePropertyFetch()
-    console.log('properties', properties)
 
     const [destination, setDestination] = useState(initDestination)
     const [dateRange, setDateRange] = useState(initDateRange)
@@ -40,7 +39,7 @@ function App() {
     const [roomOptionsIsOpen, setRoomOptionsIsOpen] = useState(false)
     const [showFullHeader, setShowFullHeader] = useState(true)
 
-    const [userIsAdmin, setUserIsAdmin] = useState(false)
+    const [userIsAdmin, setUserIsAdmin] = useState(true)
 
     const onUserAuth = async () => {
         console.log('onUserRegisterOrLogin')
@@ -112,7 +111,8 @@ function App() {
                       onUserAuth={onUserAuth}
                   />} />
               <Route path='/admin' element={
-                  userIsAdmin
+                  // userIsAdmin
+                  true
                   ?
                     <AdminPage
                       onUserAuth={onUserAuth}
