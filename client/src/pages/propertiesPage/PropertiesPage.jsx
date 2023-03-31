@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PropertyListItemCard from '../../components/propertyListItemCard/PropertyListItemCard'
+import PropertyCard from '../../components/propertyCard/propertyCard'
 import { format } from 'date-fns'
 import { DateRange } from 'react-date-range'
 import clsx from 'clsx'
@@ -212,7 +212,7 @@ const PropertiesPage = (props) => {
                 {searchResults &&
                     searchResults.map(property => {
                         return (
-                            <PropertyListItemCard key={property.id} property={property} />
+                            <PropertyCard key={property.id} property={property} />
                         )
                     })
                 }

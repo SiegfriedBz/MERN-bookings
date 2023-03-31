@@ -1,32 +1,7 @@
 .admin--container {
     display: flex;
     justify-content: center;
-}
-
-.admin--wrapper {
-    display: flex;
-    flex-direction: column;
     width: 100%;
     max-width: 1024px;
-}
-
-.admin--create-hotel-wrapper {
-
-}
-
-.admin--create-hotel-form {
-
-}
-
-.admin--create-hotel-form>input{
-    margin: 8px 0;
-    outline: none;
-    border-radius: 8px;
-}
-
-.admin--create-hotel-form>button{
-    margin: 8px 0;
-    padding: 8px 16px;
-    border-radius: 8px;
-    background-color: blue;
+    margin: auto;
 }

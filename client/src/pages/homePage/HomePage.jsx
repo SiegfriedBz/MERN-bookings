@@ -1,8 +1,7 @@
-import FeaturedCities from '../../components/featuredCities/FeaturedCities'
-import FeaturedCategories from '../../components/featuredCategories/FeaturedCategories'
-import FeaturedProperties from '../../components/featuredProperties/FeaturedProperties'
+import FeaturedCities from '../../components/home/featuredCities/FeaturedCities'
+import FeaturedCategories from '../../components/home/featuredCategories/FeaturedCategories'
+import FeaturedProperties from '../../components/home/featuredProperties/FeaturedProperties'
 import './homePage.css'
-
 
 const HomePage = () => {
     return(
