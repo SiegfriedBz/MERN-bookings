@@ -1,0 +1,164 @@
+.header-container {
+    background-color: $dark-blue;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .header-wrapper {
+        width: 100%;
+        max-width: 1024px;
+        margin: 24px 24px 48px 24px;
+        padding: 4px 8px;
+
+        &.small {
+            margin: 24px 24px 16px 24px;
+        }
+
+        .header-list {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+
+            .list-item {
+                margin: 4px 0;
+                padding: 8px;
+                border: 1px solid transparent;
+                border-radius: 16px;
+                cursor: pointer;
+                transition: 0.2s ease-in-out;
+
+                &.active {
+                    border-color: $white;
+                }
+
+                span {
+                    margin-left: 8px;
+                }
+            }
+
+        }
+
+        .title {
+            margin: 24px 0 16px 0;
+        }
+
+        .description {
+            margin: 8px 0 16px 0;
+        }
+
+        .link {
+            @extend .default-button;
+            padding: 8px 12px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+
+    .header-search-bar {
+        position: absolute;
+        bottom: -26px;
+        height: 48px;
+        width: fit-content;
+        max-width: 1024px;
+        background-color: $gold;
+        padding: 4px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 999;
+
+        .search-item {
+            background-color: $white;
+            border-radius: 4px;
+            height: 100%;
+            padding: 0 8px;
+            margin: 0 4px 0 0;
+            display: flex;
+            align-items: center;
+
+            input {
+                border: none;
+                outline: none;
+                color: $gray;
+                font-size: 16px;
+            }
+
+            .search-item-sub {
+                cursor: pointer;
+
+                span.search-text {
+                    color: $gray;
+                }
+            }
+
+            .date-range-dropdown {
+                position: absolute;
+                top: 52px;
+                left: 242px;
+                border-radius: 4px;
+            }
+
+            .search-options {
+                position: absolute;
+                top: 52px;
+                color: $gray;
+                min-width: 192px;
+                padding: 4px 8px;
+                background-color: $white;
+                border-radius: 4px;
+                z-index: 999;
+                @include smallBoxShadow();
+
+                .option-item {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 4px 0;
+                }
+
+                .option-item-sub {
+                    min-width: 72px;
+                    border: 1px solid $gray;
+                    border-radius: 4px;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .option-btn {
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    transition: 0.2s ease-in-out;
+
+                    &:not([disabled]):hover {
+                        color: $white;
+                        background-color: $light-blue;
+                        border: none;
+                        border-radius: 2px;
+                    }
+
+                    &:disabled {
+                        cursor: not-allowed;
+                    }
+                }
+
+                .close-options-btn {
+                    @extend .default-button;
+                    margin-top: 4px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .search-btn {
+            @extend .default-button;
+            padding: 8px 16px;
+        }
+    }
+
+    .icon {
+        color: $gray;
+        margin-right: 8px;
+    }
+}

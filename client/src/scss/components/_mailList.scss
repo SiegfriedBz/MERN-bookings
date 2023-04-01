@@ -1,0 +1,33 @@
+.mailList-container{
+    background-color: $dark-blue;
+    width: 100%;
+    margin: 24px 0 0;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $white;
+
+    h1 {
+        margin: 0 0 16px;
+        @include textShadow();
+    }
+
+    span {
+        margin: 0 0 8px;
+        @include textShadow();
+    }
+
+    form {
+        margin: 8px;
+        display: flex;
+        flex-direction: row;
+
+        input {
+            outline: none;
+            border-radius: 8px;
+            padding: 4px 8px;
+            cursor: pointer;
+        }
+    }
+}

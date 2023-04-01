@@ -1,0 +1,44 @@
+.fcat-container {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+
+    .fcat-wrapper {
+        flex: 1;
+        border-radius: 4px;
+        box-shadow: 0px 2px 4px gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: 0px 2px 8px gray;
+        }
+
+
+        .fcat-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .fcat-text {
+            color: black;
+            font-size: 20px;
+            margin: 0;
+            padding: 4px 8px 0 8px;
+        }
+
+        p.fcat-text {
+            @extend .fcat-text;
+            font-size: 16px;
+            padding: 4px 8px;
+        }
+
+    }
+}

@@ -1,0 +1,9 @@
+//@import "~bootstrap/scss/functions";
+
+/* import custom colors, BS variables override + extend BS theme-colors map */
+@import './variables';
+@import '~bootstrap/scss/bootstrap-utilities';
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import '~bootstrap/scss/bootstrap.scss';
+

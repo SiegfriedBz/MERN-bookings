@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import PropertyCard from '../../components/propertyCard/propertyCard'
+import clsx from 'clsx'
 import { format } from 'date-fns'
 import { DateRange } from 'react-date-range'
-import clsx from 'clsx'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
-import './propertiesPage.css'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
+import PropertyCard from '../../components/propertyCard/propertyCard'
 
 const initSearchResults = [
     { id: 1, name: 'A' },
@@ -18,7 +17,6 @@ const initSearchResults = [
 ]
 
 const PropertiesPage = (props) => {
-
     const {
         destination,
         dateRange,
@@ -40,182 +38,145 @@ const PropertiesPage = (props) => {
         return field === 'children' ? roomOptions[field] <= 0 : roomOptions[field] <= 1
     }
 
-    const propertysSearchContainerClass = clsx('properties--search-container', {
+    const searchContainerClass = clsx('search-container', {
         'big-height': dateRangeIsOpen
     })
 
-
     return(
-        <div className='properties--container'>
-
-            <div className={propertysSearchContainerClass}>
-                <h3 className='properties--search-title'>Search</h3>
-                <form
-                    onSubmit={handleSubmit}
-                    className="properties--search-form"
-                >
-                    <div
-                        id='destination'
-                        className="properties--input-wrapper"
-                    >
-                        <span className="properties--input-title">
-                            Destination
-                        </span>
-                        <div className="properties--input-container">
-                            <input
-                                className='properties--destination'
-                                type="text"
-                                placeholder='Where are you going?'
-                                defaultValue={destination}
-                                onChange={handleChangeDestination}
-                            />
+        <div className="properties-page">
+            <div className='container'>
+                <div className={searchContainerClass}>
+                    <h3>Search</h3>
+                    <form onSubmit={handleSubmit}>
+                        <div id='destination' className="input-wrapper">
+                            <span className="input-title">Destination</span>
+                            <div className="input-container">
+                                <input
+                                    className='input-destination'
+                                    type="text"
+                                    placeholder='Where are you going?'
+                                    defaultValue={destination}
+                                    onChange={handleChangeDestination}
+                                />
+                            </div>
                         </div>
-                    </div>
-
-                    <div
-                        id='dates'
-                        className="properties--input-wrapper"
-                    >
-                        <span className="properties--input-title">
-                            Dates
-                        </span>
-                        <div className="properties--input-container dates"
-                                onClick={() => (
-                                    setDateRangeIsOpen((prev) => !prev)
-                                )}
+                        <div id='dates' className="input-wrapper">
+                            <span className="input-title">Dates</span>
+                            <div className="input-container dates"
+                                 onClick={() => (
+                                     setDateRangeIsOpen((prev) => !prev)
+                                 )}
                             >
                                 {format(dateRange.startDate, 'MM/dd/yyyy')}
                                 {' '}to {format(dateRange.endDate, 'MM/dd/yyyy')}
                                 {' '}<FontAwesomeIcon icon={faCaretDown} />
                                 {dateRangeIsOpen &&
                                     <DateRange
-                                        className='properties--input-date-dropdown'
+                                        className='input-date-dropdown'
                                         ranges={[dateRange]}
                                         onChange={handleChangeDateRange}
                                     />
                                 }
-                        </div>
-                    </div>
-
-                    <div
-                        id='options'
-                        className="properties--input-wrapper"
-                    >
-                        <span className="properties--input-title">
-                            Options
-                        </span>
-
-                        <div className="properties--input-container">
-                            <div className='properties--input-option-sub-container'>
-                                <span className="properties--input-subtitle">
-                                    MinPrice <small>per night</small>
-                                </span>
-                                <input
-                                    className='properties--prices'
-                                    type="number"
-                                    name='minPrice'
-                                    value={roomOptions.minPrice}
-                                    onChange={handleChangeRoomOptions}
-                                />
-                            </div>
-                            <div className='properties--input-option-sub-container'>
-                                <span className="properties--input-subtitle">
-                                    MaxPrice <small>per night</small>
-                                </span>
-                                <input
-                                    className='properties--prices'
-                                    type="number"
-                                    name='maxPrice'
-                                    value={roomOptions.maxPrice}
-                                    onChange={handleChangeRoomOptions}
-                                />
                             </div>
                         </div>
-
-                        <div className="properties--input-container">
-                            <div className="properties--input-option-sub-container">
-                                <span className="properties--input-subtitle">
-                                    Adults
-                                </span>
-                                <div className="properties--option-btn-wrapper">
-                                    <button
-                                        name='adults-minus'
-                                        onClick={handleChangeRoomOptions}
-                                        className="properties--option-btn"
-                                        disabled={btnIsDisabled('adults')}
-                                    >-
-                                    </button>
-                                    <span>{roomOptions.adults}</span>
-                                    <button
-                                        name='adults-plus'
-                                        onClick={handleChangeRoomOptions}
-                                        className="properties--option-btn"
-                                    >+
-                                    </button>
+                        <div id='options' className="input-wrapper">
+                            <span className="input-title">Options</span>
+                            <div className="input-container">
+                                <div className='input-sub-container'>
+                                    <span>MinPrice <small>per night</small></span>
+                                    <input
+                                        className='input-prices'
+                                        type="number"
+                                        name='minPrice'
+                                        value={roomOptions.minPrice}
+                                        onChange={handleChangeRoomOptions}
+                                    />
+                                </div>
+                                <div className='input-sub-container'>
+                                    <span>MaxPrice <small>per night</small></span>
+                                    <input
+                                        className='input-prices'
+                                        type="number"
+                                        name='maxPrice'
+                                        value={roomOptions.maxPrice}
+                                        onChange={handleChangeRoomOptions}
+                                    />
                                 </div>
                             </div>
-
-                            <div className="properties--input-option-sub-container">
-                                <span className="properties--input-subtitle">
-                                    Children
-                                </span>
-                                <div className="properties--option-btn-wrapper">
-                                    <button
-                                        name='children-minus'
-                                        onClick={handleChangeRoomOptions}
-                                        className="properties--option-btn"
-                                        disabled={btnIsDisabled('children')}
-                                    >-
-                                    </button>
-                                    <span>{roomOptions.children}</span>
-                                    <button
-                                        name='children-plus'
-                                        onClick={handleChangeRoomOptions}
-                                        className="properties--option-btn"
-                                    >+
-                                    </button>
+                            <div className="input-container">
+                                <div className="input-sub-container">
+                                    <span>Adults</span>
+                                    <div className="option-btn-wrapper">
+                                        <button
+                                            name='adults-minus'
+                                            onClick={handleChangeRoomOptions}
+                                            className="option-btn"
+                                            disabled={btnIsDisabled('adults')}
+                                        >-
+                                        </button>
+                                        <span>{roomOptions.adults}</span>
+                                        <button
+                                            name='adults-plus'
+                                            onClick={handleChangeRoomOptions}
+                                            className="option-btn"
+                                        >+
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div className="properties--input-option-sub-container">
-                                <span className="properties--input-subtitle">
-                                    Rooms
-                                </span>
-                                <div className="properties--option-btn-wrapper">
-                                    <button
-                                        name='rooms-minus'
-                                        onClick={handleChangeRoomOptions}
-                                        className="properties--option-btn"
-                                        disabled={btnIsDisabled('rooms')}
-                                    >-
-                                    </button>
-                                    <span>{roomOptions.rooms}</span>
-                                    <button
-                                        name='rooms-plus'
-                                        onClick={handleChangeRoomOptions}
-                                        className="properties--option-btn"
-                                    >+
-                                    </button>
+                                <div className="input-sub-container">
+                                    <span>Children</span>
+                                    <div className="option-btn-wrapper">
+                                        <button
+                                            name='children-minus'
+                                            onClick={handleChangeRoomOptions}
+                                            className="option-btn"
+                                            disabled={btnIsDisabled('children')}
+                                        >-
+                                        </button>
+                                        <span>{roomOptions.children}</span>
+                                        <button
+                                            name='children-plus'
+                                            onClick={handleChangeRoomOptions}
+                                            className="option-btn"
+                                        >+
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="input-sub-container">
+                                    <span>Rooms</span>
+                                    <div className="option-btn-wrapper">
+                                        <button
+                                            name='rooms-minus'
+                                            onClick={handleChangeRoomOptions}
+                                            className="option-btn"
+                                            disabled={btnIsDisabled('rooms')}
+                                        >-
+                                        </button>
+                                        <span>{roomOptions.rooms}</span>
+                                        <button
+                                            name='rooms-plus'
+                                            onClick={handleChangeRoomOptions}
+                                            className="option-btn"
+                                        >+
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="properties--search-btn-wrapper">
-                        <button className="properties--search-btn">
-                            Search
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <div>
-                {searchResults &&
-                    searchResults.map(property => {
-                        return (
-                            <PropertyCard key={property.id} property={property} />
-                        )
-                    })
-                }
+                        <div className="search-btn-wrapper">
+                            <button className="search-btn">Search</button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    {searchResults &&
+                        searchResults.map(property => {
+                            return (
+                                <PropertyCard key={property.id} property={property} />
+                            )
+                        })
+                    }
+                </div>
             </div>
         </div>
     )

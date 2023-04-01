@@ -1,8 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-    faStar
-} from '@fortawesome/free-solid-svg-icons'
-import './featuredProperties.css'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 const featuredPropertiesList = [
     {id: 1, name: 'Aparthotel Stare Miasto', city: 'Madrid', price: 120, ratingValue: 5, ratingComment: 'Excellent', img: "https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1"},
@@ -19,11 +16,7 @@ const FeaturedProperties = () => {
                 .fill(faStar)
                 .map((star, index) => {
                     return(
-                        <FontAwesomeIcon
-                            className='icon-star-gold'
-                            key={index}
-                            icon={star}
-                        />
+                        <FontAwesomeIcon key={index} icon={star} className='text-warning'/>
                     )
                 }
             )
@@ -31,18 +24,18 @@ const FeaturedProperties = () => {
     }
 
     return(
-        <div className="fp--container">
+        <div className="fpp-container">
             {featuredPropertiesList &&
                 featuredPropertiesList.map(p => {
                     const {id, name, city, price, ratingValue, ratingComment, img} = p
                     return (
-                        <div key={id} className="fp--item">
-                            <img src={img} className="fp--image" alt="featured property"/>
-                            <span className="fp--name">{name}</span>
-                            <span className="fp--city">{city}</span>
-                            <span className="fp--price">from <strong>${price}</strong></span>
-                            <span className="fp--text">{getStars(ratingValue)}</span>
-                            <span className="fp--text">{ratingComment}</span>
+                        <div key={id} className="fpp-wrapper">
+                            <img className='fpp-img' src={img} alt="featured property"/>
+                            <span className="text-primary fw-bolder px-2 pt-1">{name}</span>
+                            <span className="fw-bold px-2 pt-1">{city}</span>
+                            <span className="fw-bold px-2 pb-1">from <strong>${price}</strong></span>
+                            <span className="px-2">{getStars(ratingValue)}</span>
+                            <span className='text-primary fw-bolder px-2 pb-2'>{ratingComment}</span>
                         </div>
                     )
                 })

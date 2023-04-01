@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './mailList.css'
 
 const MailList = ({ onUserMailListSubscribe }) => {
 
@@ -12,21 +11,17 @@ const MailList = ({ onUserMailListSubscribe }) => {
     }
 
     return(
-        <div className='mailList--container'>
+        <div className="mailList-container">
             <h1>Save time, Save money!</h1>
             <span>Sign up and we ll send the best deals to you</span>
-            <form
-                onSubmit={handleSubmit}
-                className="mailList--form"
-            >
+            <form onSubmit={handleSubmit}>
                 <input
                     type="email"
-                    className="mailList--input"
                     value={email}
                     placeholder='Your email'
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <button className="mailList--btn">Subscribe</button>
+                <button className='button--hover-border-white'>Subscribe</button>
             </form>
         </div>
     )

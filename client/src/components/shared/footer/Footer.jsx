@@ -1,15 +1,13 @@
-import './footer.css'
-
 const Footer = () => {
 
     const item = (
-            <ul className="footer--list">
-                <li className="footer--item">Countries</li>
-                <li className="footer--item">Regions</li>
-                <li className="footer--item">Cities</li>
-                <li className="footer--item">Districts</li>
-                <li className="footer--item">Airports</li>
-                <li className="footer--item">Hotels</li>
+            <ul className="list">
+                <li className="item">Countries</li>
+                <li className="item">Regions</li>
+                <li className="item">Cities</li>
+                <li className="item">Districts</li>
+                <li className="item">Airports</li>
+                <li className="item">Hotels</li>
             </ul>
     )
 
@@ -23,13 +21,13 @@ const Footer = () => {
     }
 
     return(
-        <div className='footer--container'>
-            <div className="footer--lists">
+        <div className='footer-container'>
+            <div className="footer-list-wrapper">
                 {
                     getItemsList()
                 }
             </div>
-            <p className='footer--copy'>&#169; 2023 MangooBooking</p>
+            <p>&#169; 2023 MangooBooking</p>
         </div>
     )
 }
