@@ -1,0 +1,15 @@
+@mixin smallBoxShadow($color: $gray) {
+  box-shadow: 0px 2px 4px $color;
+}
+
+@mixin midBoxShadow($color: $gray) {
+  box-shadow: 0px 2px 8px $color;
+}
+
+@mixin bigBoxShadow($color: $gray) {
+  box-shadow: 0px 2px 12px $color;
+}
+
+@mixin textShadow($color: $whitesmoke) {
+text-shadow: 0.025em 0.025em;
+}

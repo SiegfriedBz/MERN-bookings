@@ -1,0 +1,46 @@
+.fc-container {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+
+    .fc-wrapper {
+        flex: 1;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1;
+        cursor: pointer;
+        position: relative;
+        @include smallBoxShadow();
+
+        &:hover {
+            @include midBoxShadow();
+        }
+
+        .fc-img {
+            width: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .fc-text {
+            position: absolute;
+            left: 16px;
+            bottom: 28px;
+            font-size: 28px;
+            color: $white;
+            @include textShadow();
+        }
+
+        p.fc-text {
+            @extend .fc-text;
+            bottom: 2px;
+            font-size: 18px;
+            margin: 8px 0;
+        }
+    }
+}

@@ -1,0 +1,126 @@
+/* base btn */
+.default-button {
+  color: $white;
+  @include textShadow();
+  border: 1px solid transparent;
+  transition: 0.2s ease-in-out;
+}
+
+.bg-blue-btn {
+  @extend .default-button;
+  background-color: $light-blue;
+  border-radius: 8px;
+}
+
+.bg-blue_hover-bc-white-btn {
+  @extend .bg-blue-btn;
+
+  &:hover {
+    border-color: $white;
+  }
+}
+
+.bg-blue_hover-bg-success-bc-gold-btn {
+  @extend .bg-blue-btn;
+
+  &:hover {
+    background-color: $success;
+    border-color: $gold;
+  }
+}
+
+/* login & register pages */
+.auth-page {
+  .container {
+    .auth-btn {
+      @extend .bg-blue-btn;
+      width: 100%;
+      padding: 8px 12px;
+      margin: 8px auto 8px auto;
+
+      &:hover {
+        border-color: $gold;
+      }
+    }
+  }
+}
+
+  /* header & properties-page */
+  .header-container, .properties-page-container {
+    .option-btn {
+      @extend .default-button;
+      padding: 0 8px;
+      border-radius: 4px;
+      background-color: $white;
+
+      &:not([disabled]):hover {
+        border-color: $light-blue;
+        color: $white;
+        background-color: $light-blue;
+      }
+
+      &:disabled {
+        color: $white;
+        background-color: transparent;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  /* header */
+  .header-container {
+    .search-btn {
+      @extend .bg-blue_hover-bc-white-btn;
+      padding: 8px 16px;
+    }
+
+    .close-options-btn {
+      @extend .bg-blue_hover-bc-white-btn;
+      margin-top: 4px;
+      padding: 8px 16px;
+      width: 100%;
+    }
+  }
+
+  /* properties-page */
+  .properties-page-container {
+    .search-btn {
+      @extend .bg-blue_hover-bc-white-btn;
+      width: 75%;
+      margin-top: 16px;
+      padding: 8px 16px;
+    }
+
+    .check-availability-btn {
+      @extend .bg-blue_hover-bg-success-bc-gold-btn;
+      padding: 4px 8px;
+    }
+  }
+
+  /* property-page */
+  .property-page-container {
+    .book-now-btn {
+      @extend .bg-blue_hover-bg-success-bc-gold-btn;
+    }
+
+    .btn-top {
+      padding: 8px 16px;
+      margin: 16px 0 0;
+      align-self: flex-start;
+    }
+
+    .btn-bottom {
+      padding: 16px 24px;
+      margin: 8px 0 4px 0;
+      width: 100%;
+    }
+  }
+
+  /* mailList */
+  .mailList-container {
+    .subscribe-btn {
+      @extend .bg-blue_hover-bc-white-btn;
+      margin-left: 8px;
+      padding: 4px 8px;
+    }
+  }

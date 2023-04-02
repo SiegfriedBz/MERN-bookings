@@ -1,0 +1,88 @@
+.tabGroup--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*form*/
+.tabGroup--property-form-wrapper {
+    padding: 16px 8px;
+    margin: 0;
+    width: 324px;
+}
+
+.tabGroup--property-form {
+
+}
+
+.tabGroup--property-form>input {
+    margin: 8px 0 16px 0;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.tabGroup--property-form-input-wrapper-row {
+    margin: 8px 0 8px 0;
+}
+
+.tabGroup--property-form-input-wrapper-row>input {
+    width: auto;
+    margin: 8px 4px 0;
+}
+
+.tabGroup--property-form-input-wrapper-col {
+    display: flex;
+    flex-direction: column;
+    width: 292px;
+    margin: 8px 0 8px 0;
+}
+
+.tabGroup--property-form-submit-btn {
+    margin: 8px 0;
+    padding: 8px 16px;
+    font-weight: bolder;
+    border: 1px solid rgba(0, 113, 194, 1);
+    border-radius: 4px;
+    color: rgba(0, 113, 194, 1);
+    background-color: transparent;
+    transition: color, background-color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.tabGroup--property-form-submit-btn:hover {
+    color: white;
+    background-color: rgba(0, 113, 194, 1);
+}
+
+/*tabs*/
+.tabGroup--btn-tab-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.tabGroup--btn-tab-group.active {
+    background-color: lightgray;
+}
+
+.tabGroup--btn-tab {
+    padding: 8px 16px;
+    margin: 0 16px 0 0;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: color, border-color 0.2s ease-in-out;
+}
+
+.tabGroup--btn-tab:hover {
+    border-color: rgba(0, 113, 194, 1);
+    color: rgba(0, 113, 194, 1);
+}
+
+.tabGroup--btn-tab.active {
+    color: white;
+    background-color: rgba(0, 113, 194, 1);
+}

@@ -1,0 +1,45 @@
+.fpp-container {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+    .fpp-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 4px;
+        z-index: 1;
+        cursor: pointer;
+        @include smallBoxShadow();
+
+        &:hover {
+            @include midBoxShadow();
+        }
+
+        img.fpp-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .fpp-name {
+            font-size: 18px;
+        }
+
+        .price-rating-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+
+            .rating-wrapper {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}

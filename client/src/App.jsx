@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from "./components/navbar/Navbar"
-import Header from "./components/header/Header"
-import Footer from './components/footer/Footer'
-import MailList from './components/mailList/MailList'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import usePropertyFetch from './hooks/usePropertyFetch'
+import Navbar from "./components/shared/navbar/Navbar"
+import Header from "./components/shared/header/Header"
+import Footer from './components/shared/footer/Footer'
+import MailList from './components/shared/mailList/MailList'
 import Home from './pages/homePage/HomePage'
 import AuthPage from './pages/authPage/AuthPage'
-import HotelsPage from './pages/hotelsPage/HotelsPage'
-import HotelPage from './pages/hotelPage/HotelPage'
+import PropertiesPage from './pages/propertiesPage/PropertiesPage'
+import PropertyPage from './pages/propertyPage/PropertyPage'
+import AdminPage from './pages/adminPage/AdminPage'
+// import ErrorPage from './pages/errorPage/ErrorPage'
 
-const SERVER_URL = {
-    'mailingList': '/mailinglist'
-}
 const initDestination = 'Paros Greece'
 
 const initDateRange = {
@@ -29,6 +29,9 @@ const initRoomOptions = {
 }
 
 function App() {
+
+    const { properties, isLoading, error } = usePropertyFetch()
+
     const [destination, setDestination] = useState(initDestination)
     const [dateRange, setDateRange] = useState(initDateRange)
     const [dateRangeIsOpen, setDateRangeIsOpen] = useState(false)
@@ -36,8 +39,12 @@ function App() {
     const [roomOptionsIsOpen, setRoomOptionsIsOpen] = useState(false)
     const [showFullHeader, setShowFullHeader] = useState(true)
 
+    const [userIsAdmin, setUserIsAdmin] = useState(true)
+
     const onUserAuth = async () => {
         console.log('onUserRegisterOrLogin')
+        // if user.isAdmin => setUserIsAdmin(true) redirect('/admin')
+        // else redirect('/')
     }
 
     const handleChangeDestination = (e) => {
@@ -103,8 +110,17 @@ function App() {
                   <AuthPage
                       onUserAuth={onUserAuth}
                   />} />
-              <Route path='/hotels' element={
-                  <HotelsPage
+              <Route path='/admin' element={
+                  // userIsAdmin
+                  true
+                  ?
+                    <AdminPage
+                      onUserAuth={onUserAuth}
+                    />
+                  : <Navigate to='/' />
+              } />
+              <Route path='/properties' element={
+                  <PropertiesPage
                       destination={destination}
                       dateRange={dateRange}
                       dateRangeIsOpen={dateRangeIsOpen}
@@ -115,7 +131,7 @@ function App() {
                       handleChangeRoomOptions={handleChangeRoomOptions}
                   />
               } />
-              <Route path='/hotels/:id' element={<HotelPage />} />
+              <Route path='/properties/:id' element={<PropertyPage />} />
           </Routes>
           <MailList onUserMailListSubscribe={onUserMailListSubscribe} />
           <Footer />

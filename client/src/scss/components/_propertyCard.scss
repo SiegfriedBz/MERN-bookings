@@ -1,0 +1,66 @@
+.pc-container {
+    display: flex;
+    border-radius: 8px;
+    border: 1px solid $gray;
+    padding-left: 8px;
+    font-size: 14px;
+    @include smallBoxShadow();
+
+    &:hover {
+        @include midBoxShadow();
+    }
+
+    img {
+        width: 224px;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: auto 0;
+    }
+
+    .pc-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        margin: 0 0 0 8px;
+        padding: 8px;
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+
+            .content-wrapper {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .left {
+                @extend .content-wrapper;
+                span {
+                    margin: 4px 0;
+                }
+            }
+            .right {
+                @extend .content-wrapper;
+                justify-content: space-between;
+
+                .price-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+
+                    .price {
+                        margin-top: 24px;
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
