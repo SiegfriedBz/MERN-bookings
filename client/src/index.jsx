@@ -4,7 +4,6 @@ import { PropertyContextProvider } from './contexts/propertyContext'
 import App from './App';
 import * as bootstrap from 'bootstrap';
 import './scss/main.scss'
-import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,5 +13,3 @@ root.render(
         </PropertyContextProvider>
   </React.StrictMode>
 );
-
-reportWebVitals();
