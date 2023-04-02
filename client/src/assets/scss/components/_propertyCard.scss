@@ -1,5 +1,6 @@
 .pc-container {
     display: flex;
+    align-items: center;
     border-radius: 8px;
     border: 1px solid $gray;
     padding-left: 8px;
@@ -14,7 +15,6 @@
         width: 224px;
         border-radius: 8px;
         overflow: hidden;
-        margin: auto 0;
     }
 
     .pc-wrapper {
@@ -29,6 +29,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin: 0;
         }
 
         .content {
@@ -42,10 +43,8 @@
 
             .left {
                 @extend .content-wrapper;
-                span {
-                    margin: 4px 0;
-                }
             }
+
             .right {
                 @extend .content-wrapper;
                 justify-content: space-between;

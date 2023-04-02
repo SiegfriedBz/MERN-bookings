@@ -108,7 +108,7 @@
   }
 
   .results-container {
-    *:not(:last-child) {
+    .pc-container:not(:last-child) {
       margin-bottom: 8px;
     }
 }

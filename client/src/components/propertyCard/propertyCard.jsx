@@ -17,17 +17,17 @@ const PropertyCard = ({ property }) => {
             />
             <div className="pc-wrapper">
                 <div className="top">
-                    <span className='text-primary fw-bolder'>Tower Street Appartments</span>
-                    <span className='text-warning fw-bolder px-3 py-2'>Excellent</span>
+                    <span className='text-primary fw-bolder my-0'>Tower Street Appartments</span>
+                    <span className='text-warning fw-bolder px-3'>Excellent</span>
                     <span className='badge rounded-pill bg-info p-2'>8.9</span>
                 </div>
                 <div className="content">
                     <div className="content-wrapper left">
-                        <span>500m from center</span>
-                        <span className='badge rounded-pill bg-success w-50 py-2'>Free airport taxi</span>
-                        <span className='fw-bold'>Studio appartement with air conditioning</span>
-                        <span>Entire studio - 1 bathroom - 21m2 - Bed King size </span>
-                        <span className='text-success fw-bold'>Free cancellation</span>
+                        <span className='pb-1'>500m from center</span>
+                        <span className='badge rounded-pill bg-success w-50 pb-1'>Free airport taxi</span>
+                        <span className='fw-bold py-1'>Studio appartement with air conditioning</span>
+                        <span className='pb-1'>Entire studio - 1 bathroom - 21m2 - Bed King size </span>
+                        <span className='text-success fw-bold pb-1'>Free cancellation</span>
                     </div>
                     <div className="content-wrapper right">
                         <div className="price-wrapper">
