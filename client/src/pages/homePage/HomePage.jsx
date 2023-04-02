@@ -4,14 +4,12 @@ import FeaturedProperties from '../../components/home/featuredProperties/Feature
 
 const HomePage = () => {
     return(
-        <div className="home-page">
-            <div className="container">
-                <FeaturedCities />
-                <h2>Browse by property types</h2>
-                <FeaturedCategories />
-                <h2>Home guests love</h2>
-                <FeaturedProperties />
-            </div>
+        <div className="home-page-container">
+            <FeaturedCities />
+            <h2>Browse by property types</h2>
+            <FeaturedCategories />
+            <h2>Home guests love</h2>
+            <FeaturedProperties />
         </div>
     )
 }

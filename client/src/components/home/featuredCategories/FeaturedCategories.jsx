@@ -24,15 +24,15 @@ const FeaturedCategories = () => {
     ]
 
     return(
-        <div className="fcat-container">
+        <div className="fct-container">
             {featuredCategoriesList &&
                 featuredCategoriesList.map(fc => {
                     const { id, img, category, count } = fc
                     return (
-                        <div key={id} className="fcat-wrapper">
-                            <img className="fcat-img" src={img} alt="property category"/>
-                            <h4 className="fcat-text">{category}</h4>
-                            <p className="fcat-text">{count} {category.toLowerCase()}</p>
+                        <div key={id} className="fct-wrapper">
+                            <img className="fct-img" src={img} alt="property category"/>
+                            <h4 className="fct-text">{category}</h4>
+                            <p className="fct-text">{count} {category.toLowerCase()}</p>
                         </div>
                     )
                 })

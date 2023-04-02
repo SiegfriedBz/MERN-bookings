@@ -36,7 +36,6 @@
                     margin-left: 8px;
                 }
             }
-
         }
 
         .title {
@@ -48,10 +47,9 @@
         }
 
         .link {
-            @extend .default-button;
+            @extend .bg-blue_hover-bc-white-btn;
             padding: 8px 12px;
             text-decoration: none;
-            cursor: pointer;
         }
     }
 
@@ -73,8 +71,8 @@
             background-color: $white;
             border-radius: 4px;
             height: 100%;
+            margin-right: 4px;
             padding: 0 8px;
-            margin: 0 4px 0 0;
             display: flex;
             align-items: center;
 
@@ -83,6 +81,10 @@
                 outline: none;
                 color: $gray;
                 font-size: 16px;
+
+                &::placeholder {
+                    color: $gray;
+                }
             }
 
             .search-item-sub {
@@ -124,36 +126,7 @@
                     display: flex;
                     justify-content: space-between;
                 }
-
-                .option-btn {
-                    background-color: transparent;
-                    border: none;
-                    cursor: pointer;
-                    transition: 0.2s ease-in-out;
-
-                    &:not([disabled]):hover {
-                        color: $white;
-                        background-color: $light-blue;
-                        border: none;
-                        border-radius: 2px;
-                    }
-
-                    &:disabled {
-                        cursor: not-allowed;
-                    }
-                }
-
-                .close-options-btn {
-                    @extend .default-button;
-                    margin-top: 4px;
-                    width: 100%;
-                }
             }
-        }
-
-        .search-btn {
-            @extend .default-button;
-            padding: 8px 16px;
         }
     }
 

@@ -28,7 +28,7 @@ const AuthPage = ({ onUserAuth }) => {
     }
 
     const registerContent = (
-        <div className="container">
+        <div>
             <h3>Register</h3>
             <form onSubmit={handleSubmit}>
                 <input
@@ -52,13 +52,13 @@ const AuthPage = ({ onUserAuth }) => {
                     onChange={handleChange}
                     placeholder='Your password...'
                     />
-                <button className='auth--btn'>Submit</button>
+                <button className='auth-btn'>Submit</button>
             </form>
         </div>
     )
 
     const loginContent = (
-        <div className="container">
+        <div>
             <h3>Login</h3>
             <form onSubmit={handleSubmit}>
                 <input
@@ -75,16 +75,18 @@ const AuthPage = ({ onUserAuth }) => {
                     onChange={handleChange}
                     placeholder='Your password...'
                     />
-                <button>Submit</button>
+                <button className='auth-btn'>Submit</button>
             </form>
         </div>
     )
 
     return (
         <div className="auth-page">
-            {path === '/register'
-                ? registerContent : loginContent
-            }
+            <div className="container">
+                {path === '/register'
+                    ? registerContent : loginContent
+                }
+            </div>
         </div>
     )
 }

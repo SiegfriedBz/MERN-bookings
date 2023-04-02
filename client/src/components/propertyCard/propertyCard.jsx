@@ -34,7 +34,7 @@ const PropertyCard = ({ property }) => {
                             <span className="price">$125</span>
                             <span className="text-secondary text-end">includes taxes and fees</span>
                         </div>
-                        <button className='btn btn-sm btn-info p-2'
+                        <button className='check-availability-btn'
                             onClick={handleNavToHotelPage}
                         >
                             See Availability

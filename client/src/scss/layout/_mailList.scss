@@ -1,12 +1,19 @@
-.mailList-container{
+.mailList-container {
     background-color: $dark-blue;
     width: 100%;
-    margin: 24px 0 0;
     padding: 24px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: $white;
+
+    &.normal-margin {
+        margin: 24px 0 0;
+    }
+
+    &.small-margin {
+        margin: 0;
+    }
 
     h1 {
         margin: 0 0 16px;
@@ -22,6 +29,7 @@
         margin: 8px;
         display: flex;
         flex-direction: row;
+        align-items: center;
 
         input {
             outline: none;

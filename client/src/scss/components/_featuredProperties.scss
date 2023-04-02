@@ -25,5 +25,21 @@
             object-fit: cover;
             border-radius: 4px 4px 0 0;
         }
+
+        .fpp-name {
+            font-size: 18px;
+        }
+
+        .price-rating-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+
+            .rating-wrapper {
+                display: flex;
+                flex-direction: column;
+            }
+        }
     }
 }

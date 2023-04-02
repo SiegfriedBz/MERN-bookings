@@ -4,7 +4,7 @@ import usePropertyFetch from './hooks/usePropertyFetch'
 import Navbar from "./components/shared/navbar/Navbar"
 import Header from "./components/shared/header/Header"
 import Footer from './components/shared/footer/Footer'
-import MailList from './components/home/mailList/MailList'
+import MailList from './components/shared/mailList/MailList'
 import Home from './pages/homePage/HomePage'
 import AuthPage from './pages/authPage/AuthPage'
 import PropertiesPage from './pages/propertiesPage/PropertiesPage'

@@ -31,11 +31,15 @@ const FeaturedProperties = () => {
                     return (
                         <div key={id} className="fpp-wrapper">
                             <img className='fpp-img' src={img} alt="featured property"/>
-                            <span className="text-primary fw-bolder px-2 pt-1">{name}</span>
+                            <span className="fpp-name fw-bolder px-2 pt-1">{name}</span>
                             <span className="fw-bold px-2 pt-1">{city}</span>
-                            <span className="fw-bold px-2 pb-1">from <strong>${price}</strong></span>
-                            <span className="px-2">{getStars(ratingValue)}</span>
-                            <span className='text-primary fw-bolder px-2 pb-2'>{ratingComment}</span>
+                            <div className="price-rating-wrapper">
+                                <div className="rating-wrapper">
+                                    <span className="px-2">{getStars(ratingValue)}</span>
+                                    <span className='text-info px-2 pb-2'>{ratingComment}</span>
+                                </div>
+                                <span className="text-success fw-bold px-2 pb-1">from <strong>${price}</strong></span>
+                            </div>
                         </div>
                     )
                 })

@@ -125,7 +125,6 @@ const Header = (props) => {
                         <input
                             type="text"
                             placeholder='Where are you going?'
-                            defaultValue={destination}
                             onChange={handleChangeDestination}
                         />
                     </div>

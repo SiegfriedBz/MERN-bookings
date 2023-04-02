@@ -7,7 +7,6 @@ import {
     faArrowCircleLeft,
     faArrowCircleRight
 } from "@fortawesome/free-solid-svg-icons"
-import './propertyPage.css'
 
 const initHotel = {
     name: 'Tower Street Appartments',
@@ -51,52 +50,52 @@ const PropertyPage = () => {
     }
 
     return(
-        <div className='property--container'>
+        <div className='property-page-container'>
             {modalIsOpen &&
-                <div className="property--slider">
+                <div className="p-slider">
                     <FontAwesomeIcon
                         onClick={() => setModalIsOpen(false)}
-                        className='property--slider-icon-X'
+                        className='icon-X'
                         icon={faCircleXmark}
                     />
                     <FontAwesomeIcon
                         onClick={() => handleSlide('L')}
-                        className='property--slider-icon'
+                        className='icon'
                         icon={faArrowCircleLeft}
                     />
-                    <div className="property--slider-wrapper-image">
+                    <div className="wrapper-image">
                         <img
-                            className='property--slider-image'
                             src={initHotel.images[slideId].src}
-                            alt=""
+                            alt="property image pop"
                         />
                     </div>
                     <FontAwesomeIcon
                         onClick={() => handleSlide('R')}
-                        className='property--slider-icon'
+                        className='icon'
                         icon={faArrowCircleRight} />
                 </div>
             }
-            <div className="property--wrapper">
-                <div className="property--top-wrapper">
-                    <div className="property--top-content">
-                        <h1 className='property--text-bold'>Tower Street Appartments</h1>
-                        <div className="property--location-wrapper">
+
+            <div className="p-wrapper">
+                <div className="p-top-wrapper">
+                    <div className="content">
+                        <h1 className='fw-bold'>Tower Street Appartments</h1>
+                        <div className="d-flex align-items-center">
                             <FontAwesomeIcon icon={faLocationDot} />
-                            <span className='property--text-address'>Paros, Greece</span>
+                            <span className='ms-1'>Paros, Greece</span>
                         </div>
-                        <span className='property--text-blue-bold'>Excellent location - 500m from center</span>
-                        <span className='property--text-bold'>Entire studio - 1 bathroom - 21m2 - Bed King size </span>
-                        <span className='property--text-green-bold'>Excellent location - 500m from center</span>
+                        <span className='fw-bold'>Excellent location - 500m from center</span>
+                        <span className='fw-bold text-info'>Entire studio - 1 bathroom - 21m2 - Bed King size </span>
+                        <span className='fw-bold text-success'>Excellent location - 500m from center</span>
                     </div>
-                    <button className="property--book-btn btn-top">Book now</button>
+                    <button className="book-now-btn btn-top">Book now</button>
                 </div>
-                <div className="property--images-wrapper">
+
+                <div className="p-images-wrapper">
                     {initHotel.images.map(img => {
                         return(
                             <img
                                 key={img.id}
-                                className='property--image'
                                 src={img.src}
                                 alt=""
                                 onClick={() => handleOpenModal(img.id)}
@@ -105,8 +104,9 @@ const PropertyPage = () => {
                     })
                     }
                 </div>
-                <div className="property--bottom-wrapper">
-                    <div className="property--bottom-description">
+
+                <div className="p-bottom-wrapper">
+                    <div className="-">
                         <h2>Stay in the heart of Paros</h2>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -116,12 +116,16 @@ const PropertyPage = () => {
                             in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         </p>
                     </div>
-                    <div className="property--bottom-card">
-                        <span className="property--bottom-card-description">Perfect for a 9 nights stay!</span>
-                        <span className="property--bottom-card-price">$945 (9 nights)</span>
-                        <button className="property--book-btn btn-bottom">Book now</button>
+                    <div className="content-right">
+                        <span className="description">Perfect for a 9 nights stay!</span>
+                        <div className='price-wrapper'>
+                            <span>$945</span>
+                            <span className="price-note">(9 nights)</span>
+                        </div>
+                        <button className="book-now-btn btn-bottom">Book now</button>
                     </div>
                 </div>
+
             </div>
         </div>
     )
