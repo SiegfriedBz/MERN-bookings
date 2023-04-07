@@ -7,40 +7,34 @@
 
     .fc-wrapper {
         flex: 1;
-        border-radius: 4px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         z-index: 1;
         cursor: pointer;
         position: relative;
-        @include smallBoxShadow();
-
-        &:hover {
-            @include midBoxShadow();
-        }
 
         .fc-img {
-            width: 100%;
-            object-fit: cover;
             overflow: hidden;
-            border-radius: 4px;
+            height: 100%;
+            border-radius: 8px;
+            transition: transform 0.5s;
+
+            &:hover {
+                .img-fluid {
+                    transform: translate(0, $city-image-title);
+                }
+            }
         }
 
-        .fc-text {
-            position: absolute;
-            left: 16px;
-            bottom: 28px;
-            font-size: 28px;
-            color: $white;
+        .fc-info {
             @include textShadow();
-        }
+            margin-bottom: -$city-image-title;
+            padding: 0.5rem;
 
-        p.fc-text {
-            @extend .fc-text;
-            bottom: 2px;
-            font-size: 18px;
-            margin: 8px 0;
+            .name {
+                line-height: 1.5;
+            }
         }
     }
 }
