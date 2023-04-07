@@ -27,65 +27,39 @@ const AuthPage = ({ onUserAuth }) => {
         // redirect to '/'
     }
 
-    const registerContent = (
-        <div>
-            <h3>Register</h3>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name='name'
-                    value={user.name}
-                    onChange={handleChange}
-                    placeholder='Your name...'
-                    />
-                <input
-                    type="email"
-                    name='email'
-                    value={user.email}
-                    onChange={handleChange}
-                    placeholder='Your email...'
-                    />
-                <input
-                    type="password"
-                    name='password'
-                    value={user.password}
-                    onChange={handleChange}
-                    placeholder='Your password...'
-                    />
-                <button className='auth-btn'>Submit</button>
-            </form>
-        </div>
-    )
-
-    const loginContent = (
-        <div>
-            <h3>Login</h3>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name='name'
-                    value={user.name}
-                    onChange={handleChange}
-                    placeholder='Your name...'
-                    />
-                <input
-                    type="password"
-                    name='password'
-                    value={user.password}
-                    onChange={handleChange}
-                    placeholder='Your password...'
-                    />
-                <button className='auth-btn'>Submit</button>
-            </form>
-        </div>
-    )
+    const isLoginPage = path === '/login'
 
     return (
         <div className="auth-page">
             <div className="container">
-                {path === '/register'
-                    ? registerContent : loginContent
-                }
+                <div>
+                    <h3>Register</h3>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            name='name'
+                            value={user.name}
+                            onChange={handleChange}
+                            placeholder='Your name...'
+                        />
+                        <input
+                            hidden={isLoginPage}
+                            type="email"
+                            name='email'
+                            value={user.email}
+                            onChange={handleChange}
+                            placeholder='Your email...'
+                        />
+                        <input
+                            type="password"
+                            name='password'
+                            value={user.password}
+                            onChange={handleChange}
+                            placeholder='Your password...'
+                        />
+                        <button className='auth-btn'>Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     )
